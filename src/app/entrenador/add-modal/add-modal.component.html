@@ -17,6 +17,7 @@
             class="form-control"
             id="titulo_semana"
             placeholder="Titulo de la semana"
+            [value]="isEdit ? entrenamientoExample.titulo_semana: ''"
           />
         </div>
 
@@ -24,16 +25,16 @@
           <textarea
             class="form-control"
             placeholder="Objetivo de la semana"
-          ></textarea>
+          > {{ isEdit ? entrenamientoExample.objetivo_semana: ''}}</textarea>
           <label for="floatingTextarea">Objetivo de la semana</label>
         </div>
 
         <ul class="list-group mt-4">
           <p>Para:</p>
-          <li class="list-group-item active" aria-current="true">
-            Francisco Carranza
+          <li class="list-group-item active" aria-current="true" >
+            Francisco Carranza 
           </li>
-          <li class="list-group-item">David Gomez</li>
+          <li class="list-group-item active">David Gomez</li>
         </ul>
 
         <div class="lunes">
@@ -62,10 +63,10 @@
                   aria-label="Selecciona el tipo de lugar de entrenamiento"
                 >
                   <option selected></option>
-                  <option value="1">Entrenamiento en cinta</option>
+                  <option value="1" selected>Entrenamiento en cinta</option>
                   <option value="2">Entrenamiento en pista</option>
                   <option value="3">Entrenamiento en terreno ondulado</option>
-                  <option value="3">Entrenamiento en plano</option>
+                  <option value="4">Entrenamiento en plano</option>
                 </select>
                 <label for="floatingSelect"
                   >Selecciona el tipo de lugar de entrenamiento</label
@@ -81,8 +82,8 @@
                   <option selected></option>
                   <option value="1">Sesion regenerativa</option>
                   <option value="2">Sesion de velocidad</option>
-                  <option value="3">Carrera larga</option>
-                  <option value="3">Chequeo</option>
+                  <option value="3" selected>Carrera larga</option>
+                  <option value="4">Chequeo</option>
                 </select>
                 <label for="floatingSelect"
                   >Selecciona el tipo de entrenamiento</label
@@ -92,6 +93,7 @@
               <div class="mb-3 mt-2">
                 <input
                   type="text"
+                  [value]="isEdit ? entrenamientoExample.lunes.titulo: ''"
                   class="form-control"
                   id="titulo_lunes"
                   placeholder="Titulo del entrenamiento"
@@ -101,7 +103,7 @@
                 <textarea
                   class="form-control"
                   placeholder="Indicaciones del entrenamiento"
-                ></textarea>
+                > {{ isEdit ? entrenamientoExample.lunes.indicaciones: ''}}</textarea>
                 <label for="floatingTextarea"
                   >Indicaciones del entrenamiento</label
                 >
@@ -447,7 +449,7 @@
               aria-controls="collapseExample"
             >
               <div class="day-dropdown">
-                <strong> domingo </strong>
+                <strong> DOMINGO </strong>
                 <img src="../../assets/icons/calendar (1).svg" alt="" />
               </div>
             </button>

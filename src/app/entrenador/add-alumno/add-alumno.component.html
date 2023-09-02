@@ -1,0 +1,46 @@
+<main>
+    <nav>
+        <h2>Belga Elite CLUB</h2>
+    </nav>
+    <section>
+        <header class="section_header w-75">
+            <a routerLink="/entrenador/alumnos" class="btn-add"><img src="../../assets/icons/arrow-left.svg"
+                    alt="" /></a>
+            <h4>{{titleModal}}</h4>
+        </header>
+        <div class="form_container">
+            <form>
+
+                <div class="row">
+                    <div class="col-8 mb-3 mt-2">
+                        <input type="text" [value]="isEdit ? 'Francisco Carranza': ''" class="form-control"
+                            id="nombre_completo" placeholder="Nombre completo" />
+                    </div>
+
+                    <div class="col-4 mb-3 mt-2">
+                        <input type="number" [value]="isEdit ? 21: ''" class="form-control" id="Edad"
+                            placeholder="Edad" />
+                    </div>
+
+                    <div class="col-12 mb-3 mt-2">
+                        <label for="" class="mb-1">Fecha de ingreso</label>
+                        <input type="date" [value]="isEdit ? '2023-09-02': ''" class="form-control"
+                            id="fecha_ingreso" />
+                    </div>
+
+                    <div class="col-12 mb-3 mt-2">
+                        <label for="" class="mb-1">Estatus del atleta</label>
+                        <select class="form-select">
+                            <option selected>Selecciona</option>
+                            <option value="1" selected>Activo</option>
+                            <option value="2">Inactivo</option>
+                        </select>
+                    </div>
+                    <div class="col-12 mb-3 mt-2">
+                        <button type="button" class="btn btn-success btn-customize w-100">Guardar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>

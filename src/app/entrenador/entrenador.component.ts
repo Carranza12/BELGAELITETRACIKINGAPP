@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class EntrenadorComponent {
   public entrenamientos = [
     {
-      title: '',
+      title: 'Semana del 31 de agosto al 03 de septiembre',
       para: [
         {
           nombre: 'Francisco Carranza'
@@ -23,7 +23,7 @@ export class EntrenadorComponent {
       objetivo: "Afinando detalles para el maraton LALA"
     },
     {
-      title: '',
+      title: 'Semana del 31 de agosto al 03 de septiembre',
       para: [
         {
           nombre: 'Francisco Carranza'
@@ -39,6 +39,5 @@ export class EntrenadorComponent {
   
   public openEdit(id:string){
     this.router.navigate(['/entrenador/editar', id]);
-
   }
 }

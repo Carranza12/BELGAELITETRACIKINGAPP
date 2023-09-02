@@ -1,0 +1,27 @@
+<main>
+    <nav>
+        <h2>Belga Elite CLUB</h2>
+    </nav>
+    <section>
+        <header class="section_header">
+            <h4>Entrenamientos Planificados</h4>
+        <a routerLink="/entrenador/nuevo" class="btn-add"><img src="../../assets/icons/plus.svg" alt=""></a>
+        </header>
+        <div class="entrenamientos">
+            <div class="entrenamiento" *ngFor="let item of entrenamientos">
+                <h3>{{item.title}}</h3>
+                <div class="entrenamiento_header">
+                    <p class="title_entrenamiento">Para:</p>
+                    <p *ngFor="let alumno of item.para">{{alumno.nombre}}</p>
+                </div>
+                <div class="entrenamiento_header">
+                    <p class="title_entrenamiento">Objetivo de la semana:</p>
+                    <p>{{item.objetivo}}</p>
+                </div>
+                <img class="icon_shared" src="../../assets/icons/share-2.svg" alt="">
+                <img class="icon_shared" (click)="openEdit('21212')" src="../../assets/icons/edit.svg" alt="">
+                <img class="icon_shared" src="../../assets/icons/trash-2.svg" alt="">
+            </div>
+        </div>
+    </section>
+</main>

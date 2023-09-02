@@ -1,0 +1,523 @@
+<main>
+  <nav>
+    <h2>Belga Elite CLUB</h2>
+  </nav>
+  <section>
+    <header class="section_header">
+      <a routerLink="/entrenador" class="btn-add"
+        ><img src="../../assets/icons/arrow-left.svg" alt=""
+      /></a>
+      <h4>{{titleModal}}</h4>
+    </header>
+    <div class="form_container">
+      <form>
+        <div class="mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="titulo_semana"
+            placeholder="Titulo de la semana"
+          />
+        </div>
+
+        <div class="form-floating">
+          <textarea
+            class="form-control"
+            placeholder="Objetivo de la semana"
+          ></textarea>
+          <label for="floatingTextarea">Objetivo de la semana</label>
+        </div>
+
+        <ul class="list-group mt-4">
+          <p>Para:</p>
+          <li class="list-group-item active" aria-current="true">
+            Francisco Carranza
+          </li>
+          <li class="list-group-item">David Gomez</li>
+        </ul>
+
+        <div class="lunes">
+          <p class="d-inline-flex gap-1 mt-4 w-100">
+            <button
+              class="card card-body w-100"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseLunes"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+            >
+              <div class="day-dropdown">
+                <strong> LUNES </strong>
+                <img src="../../assets/icons/calendar (1).svg" alt="" />
+              </div>
+            </button>
+          </p>
+          <div class="collapse" id="collapseLunes">
+            <div class="card card-body">
+              <p class="text-body-secondary">Completa los siguientes datos:</p>
+              <div class="form-floating">
+                <select
+                  class="form-select"
+                  id="floatingSelect"
+                  aria-label="Selecciona el tipo de lugar de entrenamiento"
+                >
+                  <option selected></option>
+                  <option value="1">Entrenamiento en cinta</option>
+                  <option value="2">Entrenamiento en pista</option>
+                  <option value="3">Entrenamiento en terreno ondulado</option>
+                  <option value="3">Entrenamiento en plano</option>
+                </select>
+                <label for="floatingSelect"
+                  >Selecciona el tipo de lugar de entrenamiento</label
+                >
+              </div>
+
+              <div class="form-floating mt-2">
+                <select
+                  class="form-select"
+                  id="floatingSelect"
+                  aria-label="Selecciona el tipo de lugar de entrenamiento"
+                >
+                  <option selected></option>
+                  <option value="1">Sesion regenerativa</option>
+                  <option value="2">Sesion de velocidad</option>
+                  <option value="3">Carrera larga</option>
+                  <option value="3">Chequeo</option>
+                </select>
+                <label for="floatingSelect"
+                  >Selecciona el tipo de entrenamiento</label
+                >
+              </div>
+
+              <div class="mb-3 mt-2">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="titulo_lunes"
+                  placeholder="Titulo del entrenamiento"
+                />
+              </div>
+              <div class="form-floating">
+                <textarea
+                  class="form-control"
+                  placeholder="Indicaciones del entrenamiento"
+                ></textarea>
+                <label for="floatingTextarea"
+                  >Indicaciones del entrenamiento</label
+                >
+              </div>
+              <div class="mb-3 mt-2">
+                <label for="customRange1" class="form-label"
+                  >Nivel de intensidad</label
+                >
+                <input type="range" class="form-range" id="customRange1" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="martes">
+          <p class="d-inline-flex gap-1 mt-2 w-100">
+            <button
+              class="card card-body w-100"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseMartes"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+            >
+              <div class="day-dropdown">
+                <strong> MARTES </strong>
+                <img src="../../assets/icons/calendar (1).svg" alt="" />
+              </div>
+            </button>
+          </p>
+          <div class="collapse" id="collapseMartes">
+            <div class="card card-body">
+              <p class="text-body-secondary">Completa los siguientes datos:</p>
+              <div class="form-floating">
+                <select
+                  class="form-select"
+                  id="floatingSelect"
+                  aria-label="Selecciona el tipo de lugar de entrenamiento"
+                >
+                  <option selected></option>
+                  <option value="1">Entrenamiento en cinta</option>
+                  <option value="2">Entrenamiento en pista</option>
+                  <option value="3">Entrenamiento en terreno ondulado</option>
+                  <option value="3">Entrenamiento en plano</option>
+                </select>
+                <label for="floatingSelect"
+                  >Selecciona el tipo de lugar de entrenamiento</label
+                >
+              </div>
+
+              <div class="form-floating mt-2">
+                <select
+                  class="form-select"
+                  id="floatingSelect"
+                  aria-label="Selecciona el tipo de lugar de entrenamiento"
+                >
+                  <option selected></option>
+                  <option value="1">Sesion regenerativa</option>
+                  <option value="2">Sesion de velocidad</option>
+                  <option value="3">Carrera larga</option>
+                  <option value="3">Chequeo</option>
+                </select>
+                <label for="floatingSelect"
+                  >Selecciona el tipo de entrenamiento</label
+                >
+              </div>
+
+              <div class="mb-3 mt-2">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="titulo_lunes"
+                  placeholder="Titulo del entrenamiento"
+                />
+              </div>
+              <div class="form-floating">
+                <textarea
+                  class="form-control"
+                  placeholder="Indicaciones del entrenamiento"
+                ></textarea>
+                <label for="floatingTextarea"
+                  >Indicaciones del entrenamiento</label
+                >
+              </div>
+              <div class="mb-3 mt-2">
+                <label for="customRange1" class="form-label"
+                  >Nivel de intensidad</label
+                >
+                <input type="range" class="form-range" id="customRange1" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="miercoles">
+          <p class="d-inline-flex gap-1 mt-2 w-100">
+            <button
+              class="card card-body w-100"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseMiercoles"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+            >
+              <div class="day-dropdown">
+                <strong> MIERCOLES </strong>
+                <img src="../../assets/icons/calendar (1).svg" alt="" />
+              </div>
+            </button>
+          </p>
+          <div class="collapse" id="collapseMiercoles">
+            <div class="card card-body">
+              <p class="text-body-secondary">Completa los siguientes datos:</p>
+              <div class="form-floating">
+                <select
+                  class="form-select"
+                  id="floatingSelect"
+                  aria-label="Selecciona el tipo de lugar de entrenamiento"
+                >
+                  <option selected></option>
+                  <option value="1">Entrenamiento en cinta</option>
+                  <option value="2">Entrenamiento en pista</option>
+                  <option value="3">Entrenamiento en terreno ondulado</option>
+                  <option value="3">Entrenamiento en plano</option>
+                </select>
+                <label for="floatingSelect"
+                  >Selecciona el tipo de lugar de entrenamiento</label
+                >
+              </div>
+
+              <div class="form-floating mt-2">
+                <select
+                  class="form-select"
+                  id="floatingSelect"
+                  aria-label="Selecciona el tipo de lugar de entrenamiento"
+                >
+                  <option selected></option>
+                  <option value="1">Sesion regenerativa</option>
+                  <option value="2">Sesion de velocidad</option>
+                  <option value="3">Carrera larga</option>
+                  <option value="3">Chequeo</option>
+                </select>
+                <label for="floatingSelect"
+                  >Selecciona el tipo de entrenamiento</label
+                >
+              </div>
+
+              <div class="mb-3 mt-2">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="titulo_lunes"
+                  placeholder="Titulo del entrenamiento"
+                />
+              </div>
+              <div class="form-floating">
+                <textarea
+                  class="form-control"
+                  placeholder="Indicaciones del entrenamiento"
+                ></textarea>
+                <label for="floatingTextarea"
+                  >Indicaciones del entrenamiento</label
+                >
+              </div>
+              <div class="mb-3 mt-2">
+                <label for="customRange1" class="form-label"
+                  >Nivel de intensidad</label
+                >
+                <input type="range" class="form-range" id="customRange1" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="jueves">
+          <p class="d-inline-flex gap-1 mt-2 w-100">
+            <button
+              class="card card-body w-100"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseJueves"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+            >
+              <div class="day-dropdown">
+                <strong> JUEVES </strong>
+                <img src="../../assets/icons/calendar (1).svg" alt="" />
+              </div>
+            </button>
+          </p>
+          <div class="collapse" id="collapseJueves">
+            <div class="card card-body">
+              <p class="text-body-secondary">Completa los siguientes datos:</p>
+              <div class="form-floating">
+                <select
+                  class="form-select"
+                  id="floatingSelect"
+                  aria-label="Selecciona el tipo de lugar de entrenamiento"
+                >
+                  <option selected></option>
+                  <option value="1">Entrenamiento en cinta</option>
+                  <option value="2">Entrenamiento en pista</option>
+                  <option value="3">Entrenamiento en terreno ondulado</option>
+                  <option value="3">Entrenamiento en plano</option>
+                </select>
+                <label for="floatingSelect"
+                  >Selecciona el tipo de lugar de entrenamiento</label
+                >
+              </div>
+
+              <div class="form-floating mt-2">
+                <select
+                  class="form-select"
+                  id="floatingSelect"
+                  aria-label="Selecciona el tipo de lugar de entrenamiento"
+                >
+                  <option selected></option>
+                  <option value="1">Sesion regenerativa</option>
+                  <option value="2">Sesion de velocidad</option>
+                  <option value="3">Carrera larga</option>
+                  <option value="3">Chequeo</option>
+                </select>
+                <label for="floatingSelect"
+                  >Selecciona el tipo de entrenamiento</label
+                >
+              </div>
+
+              <div class="mb-3 mt-2">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="titulo_lunes"
+                  placeholder="Titulo del entrenamiento"
+                />
+              </div>
+              <div class="form-floating">
+                <textarea
+                  class="form-control"
+                  placeholder="Indicaciones del entrenamiento"
+                ></textarea>
+                <label for="floatingTextarea"
+                  >Indicaciones del entrenamiento</label
+                >
+              </div>
+              <div class="mb-3 mt-2">
+                <label for="customRange1" class="form-label"
+                  >Nivel de intensidad</label
+                >
+                <input type="range" class="form-range" id="customRange1" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="viernes">
+          <p class="d-inline-flex gap-1 mt-2 w-100">
+            <button
+              class="card card-body w-100"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseViernes"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+            >
+              <div class="day-dropdown">
+                <strong> VIERNES </strong>
+                <img src="../../assets/icons/calendar (1).svg" alt="" />
+              </div>
+            </button>
+          </p>
+          <div class="collapse" id="collapseViernes">
+            <div class="card card-body">
+              <p class="text-body-secondary">Completa los siguientes datos:</p>
+              <div class="form-floating">
+                <select
+                  class="form-select"
+                  id="floatingSelect"
+                  aria-label="Selecciona el tipo de lugar de entrenamiento"
+                >
+                  <option selected></option>
+                  <option value="1">Entrenamiento en cinta</option>
+                  <option value="2">Entrenamiento en pista</option>
+                  <option value="3">Entrenamiento en terreno ondulado</option>
+                  <option value="3">Entrenamiento en plano</option>
+                </select>
+                <label for="floatingSelect"
+                  >Selecciona el tipo de lugar de entrenamiento</label
+                >
+              </div>
+
+              <div class="form-floating mt-2">
+                <select
+                  class="form-select"
+                  id="floatingSelect"
+                  aria-label="Selecciona el tipo de lugar de entrenamiento"
+                >
+                  <option selected></option>
+                  <option value="1">Sesion regenerativa</option>
+                  <option value="2">Sesion de velocidad</option>
+                  <option value="3">Carrera larga</option>
+                  <option value="3">Chequeo</option>
+                </select>
+                <label for="floatingSelect"
+                  >Selecciona el tipo de entrenamiento</label
+                >
+              </div>
+
+              <div class="mb-3 mt-2">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="titulo_lunes"
+                  placeholder="Titulo del entrenamiento"
+                />
+              </div>
+              <div class="form-floating">
+                <textarea
+                  class="form-control"
+                  placeholder="Indicaciones del entrenamiento"
+                ></textarea>
+                <label for="floatingTextarea"
+                  >Indicaciones del entrenamiento</label
+                >
+              </div>
+              <div class="mb-3 mt-2">
+                <label for="customRange1" class="form-label"
+                  >Nivel de intensidad</label
+                >
+                <input type="range" class="form-range" id="customRange1" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="domingo">
+          <p class="d-inline-flex gap-1 mt-2 w-100">
+            <button
+              class="card card-body w-100"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseDomingo"
+              aria-expanded="false"
+              aria-controls="collapseExample"
+            >
+              <div class="day-dropdown">
+                <strong> domingo </strong>
+                <img src="../../assets/icons/calendar (1).svg" alt="" />
+              </div>
+            </button>
+          </p>
+          <div class="collapse" id="collapseDomingo">
+            <div class="card card-body">
+              <p class="text-body-secondary">Completa los siguientes datos:</p>
+              <div class="form-floating">
+                <select
+                  class="form-select"
+                  id="floatingSelect"
+                  aria-label="Selecciona el tipo de lugar de entrenamiento"
+                >
+                  <option selected></option>
+                  <option value="1">Entrenamiento en cinta</option>
+                  <option value="2">Entrenamiento en pista</option>
+                  <option value="3">Entrenamiento en terreno ondulado</option>
+                  <option value="3">Entrenamiento en plano</option>
+                </select>
+                <label for="floatingSelect"
+                  >Selecciona el tipo de lugar de entrenamiento</label
+                >
+              </div>
+
+              <div class="form-floating mt-2">
+                <select
+                  class="form-select"
+                  id="floatingSelect"
+                  aria-label="Selecciona el tipo de lugar de entrenamiento"
+                >
+                  <option selected></option>
+                  <option value="1">Sesion regenerativa</option>
+                  <option value="2">Sesion de velocidad</option>
+                  <option value="3">Carrera larga</option>
+                  <option value="3">Chequeo</option>
+                </select>
+                <label for="floatingSelect"
+                  >Selecciona el tipo de entrenamiento</label
+                >
+              </div>
+
+              <div class="mb-3 mt-2">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="titulo_lunes"
+                  placeholder="Titulo del entrenamiento"
+                />
+              </div>
+              <div class="form-floating">
+                <textarea
+                  class="form-control"
+                  placeholder="Indicaciones del entrenamiento"
+                ></textarea>
+                <label for="floatingTextarea"
+                  >Indicaciones del entrenamiento</label
+                >
+              </div>
+              <div class="mb-3 mt-2">
+                <label for="customRange1" class="form-label"
+                  >Nivel de intensidad</label
+                >
+                <input type="range" class="form-range" id="customRange1" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-success btn-customize w-100">Guardar</button>
+      </form>
+    </div>
+  </section>
+</main>

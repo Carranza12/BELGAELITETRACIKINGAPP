@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2? family= Roboto:ital,wght@0,300;0,400;0,900;1,100;1,400;1,500;1,900 & display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+.title_entrenamiento{
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0;
+}
+.icon_shared{
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+input, textarea, select {
+    z-index: -1!important;
+}

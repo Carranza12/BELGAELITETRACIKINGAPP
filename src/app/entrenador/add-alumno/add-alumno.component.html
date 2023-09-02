@@ -9,12 +9,12 @@
             <h4>{{titleModal}}</h4>
         </header>
         <div class="form_container">
-            <form>
+            <form [formGroup]="alumnoFormGroup">
 
                 <div class="row">
                     <div class="col-8 mb-3 mt-2">
                         <input type="text" [value]="isEdit ? 'Francisco Carranza': ''" class="form-control"
-                            id="nombre_completo" placeholder="Nombre completo" />
+                        formControlName="nombre_completo"  placeholder="Nombre completo" />
                     </div>
 
                     <div class="col-4 mb-3 mt-2">

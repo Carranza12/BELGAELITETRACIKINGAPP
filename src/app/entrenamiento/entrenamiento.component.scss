@@ -32,14 +32,20 @@
     }
 
 }
-
+.title_calendar{
+    font-weight:500;
+    font-family: 'Anton', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1.7px;
+    margin: 10px;
+}
 .calendar_main {
     width: 100vw;
     height: 100vh;
     overflow: auto;
-
+    background: #FFFFFF;
     .calendar {
-
+        background: #FFFFFF;
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
@@ -48,17 +54,20 @@
 
         .calendar_header {
             margin: 10px;
-            border-radius: 6px;
+            border-radius: 13px;
             width: 1500px;
+            border: none;
             display: flex;
             flex-wrap: nowrap;
             align-items: center;
+            gap: 10px;
             justify-content: flex-start;
             box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 
             .days_calendar {
                 width: 250px !important;
                 font-size: 24px;
+                
             }
 
             .detail_calendar {

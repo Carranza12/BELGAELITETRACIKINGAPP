@@ -11,7 +11,11 @@ export class EntrenamientoComponent implements OnInit {
   public calendarMain: boolean = true;
   public DetailsMain: boolean = false;
   public CommentsMain: boolean = false;
+  isMenuOpen = false;
 
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
   constructor() {}
 
   ngOnInit(): void {
@@ -23,16 +27,19 @@ export class EntrenamientoComponent implements OnInit {
       this.calendarMain = true;
       this.DetailsMain = false;
       this.CommentsMain = false;
+      this.isMenuOpen = !this.isMenuOpen;
     }
     if (page === 'details') {
       this.calendarMain = false;
       this.DetailsMain = true;
       this.CommentsMain = false;
+      this.isMenuOpen = !this.isMenuOpen;
     }
     if (page === 'comments') {
       this.calendarMain = false;
       this.DetailsMain = false;
       this.CommentsMain = true;
+      this.isMenuOpen = !this.isMenuOpen;
     }
   }
 }

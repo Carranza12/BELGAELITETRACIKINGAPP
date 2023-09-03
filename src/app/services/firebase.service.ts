@@ -5,6 +5,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   providedIn: 'root'
 })
 export class FirebaseService {
+  public alumnos = this.initAlumnos()
   constructor(public db: AngularFirestore) {}
 
   public addDocument(
@@ -14,6 +15,10 @@ export class FirebaseService {
     return this.db.collection(collection).add(data);
   }
   
+  public async initAlumnos(){
+    return await this.getDocuments('alumnos',{})
+  }
+
   public removeDocument(
     collection: string,
     id: string

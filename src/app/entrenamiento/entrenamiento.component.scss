@@ -1,3 +1,90 @@
+$menuHeight: 60px;
+$menuBreakpoint: 768px;
+
+#my-first {
+    color: white;
+    width: 100vw;
+    z-index: 999;
+    position: absolute;
+  ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #C70039;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    color: white;
+  }
+
+  .logotype {
+    a {
+      padding: 0 8px;
+      font-size: 1.4rem;
+      text-decoration: none;
+      color: #07c;
+    }
+  }
+
+  .burger {
+    padding: 0 10px;
+
+    display: none;
+    cursor: pointer;
+
+    i {
+        color: white;
+      line-height: $menuHeight;
+    }
+
+    @media (max-width: $menuBreakpoint) {
+      display: block;
+    }
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+
+    @media (max-width: $menuBreakpoint) {
+      display: none;
+
+      &.is-open {
+        display: block;
+        position: absolute;
+        top: #{$menuHeight + 2};
+        background: #C70039;
+        width: 100%;
+
+        .menu-item {
+
+          display: flex;
+          gap:15px;
+          align-items: center;
+        }
+      }
+    }
+
+    .menu-item {
+      padding: 0 10px;
+      height: $menuHeight;
+      line-height: $menuHeight;
+      text-decoration: none;
+      display: block;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: white;
+    }
+  }
+}
+
+.calendar_title{
+    font-family: 'Anton', sans-serif;
+    font-weight: 500;
+    letter-spacing: 1.7px;
+}
+
 .aside_main {
     display: flex;
     flex-direction: column;
@@ -40,6 +127,7 @@
     margin: 10px;
 }
 .calendar_main {
+    z-index: -1;
     width: 100vw;
     height: 100vh;
     overflow: auto;
@@ -71,7 +159,7 @@
             }
 
             .detail_calendar {
-                border: 1.5px solid rgba(128, 128, 128, 0.275);
+             
                 border-radius: 6px;
                 height: 350px;
                 overflow-y: auto;
@@ -104,7 +192,7 @@
                     }
 
                     strong {
-                        font-size: 24px;
+                        font-size: 20px!important;
                         margin: 0;
                     }
                 }
@@ -135,9 +223,12 @@
 
 #comments {
     h1 {
-        color: #555;
+        color: black;
         font-weight: normal;
         margin-bottom: 2rem;
+        font-family: 'Anton', sans-serif;
+        margin: 30px;
+        margin-bottom: 50px;
     }
 
     #comments {
@@ -146,13 +237,14 @@
     }
 
     .comment {
+        padding-top: 10px;
         position: relative;
         margin: 2rem 0 0 0;
-        background-color: #fefefe;
-        border: 2px solid #c70039;
+        background-color: #F5F5F5;
+        border: 5px solid #c70039;
         -webkit-border-radius: 0.25rem;
         -moz-border-radius: 0.25rem;
-        border-radius: 6px;
+        border-radius: 13px;
         font-size: 10pt;
         width: 80%;
         margin: 0 auto;
@@ -161,10 +253,11 @@
 
     .username {
         position: absolute;
-        top: -1.5em;
+        top: -2em;
         left: 0;
         margin-left: 2rem;
         font-weight: bold;
+        margin-bottom: 5px;
     }
 
     .comment p {
@@ -175,10 +268,9 @@
         position: absolute;
         max-width: 3rem;
         max-height: 3rem;
-        border: 2px solid #c70039;
-        -webkit-border-radius: 1.5rem;
-        -moz-border-radius: 1.5rem;
-        border-radius: 1.5rem;
+        border: 5px solid #c70039;
+        height: 3rem;
+        border-radius: 50px;
         top: -1.5rem;
         left: -1.5rem;
     }

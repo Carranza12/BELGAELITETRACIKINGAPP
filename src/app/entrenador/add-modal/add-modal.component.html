@@ -10,31 +10,41 @@
       <h4>{{titleModal}}</h4>
     </header>
     <div class="form_container">
-      <form>
+      <form [formGroup]="entrenamientoFormGroup">
         <div class="mb-3">
           <input
             type="text"
-            class="form-control"
+            class="input_app"
             id="titulo_semana"
+            formControlName="titulo_semana"
             placeholder="Titulo de la semana"
             [value]="isEdit ? entrenamientoExample.titulo_semana: ''"
           />
+          <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['titulo_semana'].valid && 
+          entrenamientoFormGroup.controls['titulo_semana']?.touched"> Este campo es obligatorio.</span>
         </div>
 
         <div class="form-floating">
           <textarea
-            class="form-control"
+            class="input_app"
+            *ngIf="!isEdit"
             placeholder="Objetivo de la semana"
-          > {{ isEdit ? entrenamientoExample.objetivo_semana: ''}}</textarea>
-          <label for="floatingTextarea">Objetivo de la semana</label>
+            formControlName="objetivo_semana"
+          ></textarea>
+          <textarea
+            class="input_app"
+            *ngIf="isEdit"
+          >{{ entrenamientoExample.objetivo_semana }}</textarea>
+          <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['objetivo_semana'].valid && 
+          entrenamientoFormGroup.controls['objetivo_semana']?.touched"> Este campo es obligatorio.</span>
         </div>
 
         <ul class="list-group mt-4">
           <p>Para:</p>
-          <li class="list-group-item active" aria-current="true" >
-            Francisco Carranza 
+          <li class="list-group-item" aria-current="true" *ngFor="let alumno of alumnos" >
+            {{alumno.nombre_completo}}
           </li>
-          <li class="list-group-item active">David Gomez</li>
+        
         </ul>
 
         <div class="lunes">
@@ -58,62 +68,61 @@
               <p class="text-body-secondary">Completa los siguientes datos:</p>
               <div class="form-floating">
                 <select
-                  class="form-select"
+                formControlName="tipo_lugar_lunes"
+                  class="input_app"
                   id="floatingSelect"
                   aria-label="Selecciona el tipo de lugar de entrenamiento"
                 >
-                  <option selected></option>
+                  <option selected>Tipo de lugar de entrenamiento</option>
                   <option value="1" selected>Entrenamiento en cinta</option>
                   <option value="2">Entrenamiento en pista</option>
                   <option value="3">Entrenamiento en terreno ondulado</option>
                   <option value="4">Entrenamiento en plano</option>
                 </select>
-                <label for="floatingSelect"
-                  >Selecciona el tipo de lugar de entrenamiento</label
-                >
+                <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['tipo_lugar_lunes'].valid && 
+                entrenamientoFormGroup.controls['tipo_lugar_lunes']?.touched"> Este campo es obligatorio.</span>
               </div>
 
               <div class="form-floating mt-2">
                 <select
-                  class="form-select"
+                formControlName="tipo_entrenamiento_lunes"
+                  class="input_app"
                   id="floatingSelect"
-                  aria-label="Selecciona el tipo de lugar de entrenamiento"
+                  place
+                  aria-label="Tipo de entrenamiento"
                 >
-                  <option selected></option>
+                  <option selected class="input_placeholder">Tipo de entrenamiento</option>
                   <option value="1">Sesion regenerativa</option>
                   <option value="2">Sesion de velocidad</option>
-                  <option value="3" selected>Carrera larga</option>
+                  <option value="3" >Carrera larga</option>
                   <option value="4">Chequeo</option>
                 </select>
-                <label for="floatingSelect"
-                  >Selecciona el tipo de entrenamiento</label
-                >
+                <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['tipo_entrenamiento_lunes'].valid && 
+                entrenamientoFormGroup.controls['tipo_entrenamiento_lunes']?.touched"> Este campo es obligatorio.</span>
               </div>
 
               <div class="mb-3 mt-2">
                 <input
                   type="text"
                   [value]="isEdit ? entrenamientoExample.lunes.titulo: ''"
-                  class="form-control"
+                  class="input_app"
                   id="titulo_lunes"
                   placeholder="Titulo del entrenamiento"
                 />
               </div>
               <div class="form-floating">
                 <textarea
-                  class="form-control"
+                  class="input_app"
+                  *ngIf="!isEdit"
                   placeholder="Indicaciones del entrenamiento"
-                > {{ isEdit ? entrenamientoExample.lunes.indicaciones: ''}}</textarea>
-                <label for="floatingTextarea"
-                  >Indicaciones del entrenamiento</label
-                >
+                ></textarea>
+                <textarea
+                  class="input_app"
+                  *ngIf="isEdit"
+                >{{ isEdit ? entrenamientoExample.lunes.indicaciones : '' }}</textarea>
               </div>
-              <div class="mb-3 mt-2">
-                <label for="customRange1" class="form-label"
-                  >Nivel de intensidad</label
-                >
-                <input type="range" class="form-range" id="customRange1" />
-              </div>
+              
+              
             </div>
           </div>
         </div>
@@ -139,61 +148,55 @@
               <p class="text-body-secondary">Completa los siguientes datos:</p>
               <div class="form-floating">
                 <select
-                  class="form-select"
+                  class="input_app"
                   id="floatingSelect"
                   aria-label="Selecciona el tipo de lugar de entrenamiento"
                 >
-                  <option selected></option>
+                  <option selected>tipo de lugar de entrenamiento</option>
                   <option value="1">Entrenamiento en cinta</option>
                   <option value="2">Entrenamiento en pista</option>
                   <option value="3">Entrenamiento en terreno ondulado</option>
                   <option value="3">Entrenamiento en plano</option>
                 </select>
-                <label for="floatingSelect"
-                  >Selecciona el tipo de lugar de entrenamiento</label
-                >
+              
               </div>
 
               <div class="form-floating mt-2">
                 <select
-                  class="form-select"
+                  class="input_app"
                   id="floatingSelect"
                   aria-label="Selecciona el tipo de lugar de entrenamiento"
                 >
-                  <option selected></option>
+                  <option selected>tipo de entrenamiento</option>
                   <option value="1">Sesion regenerativa</option>
                   <option value="2">Sesion de velocidad</option>
                   <option value="3">Carrera larga</option>
                   <option value="3">Chequeo</option>
                 </select>
-                <label for="floatingSelect"
-                  >Selecciona el tipo de entrenamiento</label
-                >
+               
               </div>
 
               <div class="mb-3 mt-2">
                 <input
                   type="text"
-                  class="form-control"
+                  class="input_app"
                   id="titulo_lunes"
                   placeholder="Titulo del entrenamiento"
                 />
               </div>
               <div class="form-floating">
                 <textarea
-                  class="form-control"
+                  class="input_app"
+                  *ngIf="!isEdit"
                   placeholder="Indicaciones del entrenamiento"
                 ></textarea>
-                <label for="floatingTextarea"
-                  >Indicaciones del entrenamiento</label
-                >
+                <textarea
+                  class="input_app"
+                  *ngIf="isEdit"
+                  placeholder="Indicaciones del entrenamiento"
+                ></textarea>
               </div>
-              <div class="mb-3 mt-2">
-                <label for="customRange1" class="form-label"
-                  >Nivel de intensidad</label
-                >
-                <input type="range" class="form-range" id="customRange1" />
-              </div>
+              
             </div>
           </div>
         </div>
@@ -219,61 +222,56 @@
               <p class="text-body-secondary">Completa los siguientes datos:</p>
               <div class="form-floating">
                 <select
-                  class="form-select"
+                  class="input_app"
                   id="floatingSelect"
-                  aria-label="Selecciona el tipo de lugar de entrenamiento"
+                  aria-label="Selecciona el "
                 >
-                  <option selected></option>
+                  <option selected>tipo de lugar de entrenamiento</option>
                   <option value="1">Entrenamiento en cinta</option>
                   <option value="2">Entrenamiento en pista</option>
                   <option value="3">Entrenamiento en terreno ondulado</option>
                   <option value="3">Entrenamiento en plano</option>
                 </select>
-                <label for="floatingSelect"
-                  >Selecciona el tipo de lugar de entrenamiento</label
-                >
+                
               </div>
 
               <div class="form-floating mt-2">
                 <select
-                  class="form-select"
+                  class="input_app"
                   id="floatingSelect"
                   aria-label="Selecciona el tipo de lugar de entrenamiento"
                 >
-                  <option selected></option>
+                  <option selected>tipo de entrenamiento</option>
                   <option value="1">Sesion regenerativa</option>
                   <option value="2">Sesion de velocidad</option>
                   <option value="3">Carrera larga</option>
                   <option value="3">Chequeo</option>
                 </select>
-                <label for="floatingSelect"
-                  >Selecciona el tipo de entrenamiento</label
-                >
+                
               </div>
 
               <div class="mb-3 mt-2">
                 <input
                   type="text"
-                  class="form-control"
+                  class="input_app"
                   id="titulo_lunes"
                   placeholder="Titulo del entrenamiento"
                 />
               </div>
               <div class="form-floating">
                 <textarea
-                  class="form-control"
+                  class="input_app"
+                  *ngIf="!isEdit"
                   placeholder="Indicaciones del entrenamiento"
                 ></textarea>
-                <label for="floatingTextarea"
-                  >Indicaciones del entrenamiento</label
-                >
+                <textarea
+                  class="input_app"
+                  *ngIf="isEdit"
+                ></textarea>
+               
               </div>
-              <div class="mb-3 mt-2">
-                <label for="customRange1" class="form-label"
-                  >Nivel de intensidad</label
-                >
-                <input type="range" class="form-range" id="customRange1" />
-              </div>
+              
+              
             </div>
           </div>
         </div>
@@ -299,61 +297,62 @@
               <p class="text-body-secondary">Completa los siguientes datos:</p>
               <div class="form-floating">
                 <select
-                  class="form-select"
+                  class="input_app"
                   id="floatingSelect"
-                  aria-label="Selecciona el tipo de lugar de entrenamiento"
+                  aria-label="Selecciona el tipo de entrenamiento"
                 >
-                  <option selected></option>
+                  <option selected>tipo de lugar de entrenamiento</option>
                   <option value="1">Entrenamiento en cinta</option>
                   <option value="2">Entrenamiento en pista</option>
                   <option value="3">Entrenamiento en terreno ondulado</option>
                   <option value="3">Entrenamiento en plano</option>
                 </select>
-                <label for="floatingSelect"
-                  >Selecciona el tipo de lugar de entrenamiento</label
-                >
+                
               </div>
 
               <div class="form-floating mt-2">
                 <select
-                  class="form-select"
+                  class="input_app"
                   id="floatingSelect"
                   aria-label="Selecciona el tipo de lugar de entrenamiento"
                 >
-                  <option selected></option>
+                  <option selected>tipo de entrenamiento</option>
                   <option value="1">Sesion regenerativa</option>
                   <option value="2">Sesion de velocidad</option>
                   <option value="3">Carrera larga</option>
                   <option value="3">Chequeo</option>
                 </select>
-                <label for="floatingSelect"
-                  >Selecciona el tipo de entrenamiento</label
-                >
+                
               </div>
 
               <div class="mb-3 mt-2">
                 <input
                   type="text"
-                  class="form-control"
+                  class="input_app"
                   id="titulo_lunes"
+                  *ngIf="!isEdit"
                   placeholder="Titulo del entrenamiento"
+                />
+                <input
+                  type="text"
+                  class="input_app"
+                  id="titulo_lunes"
+                  *ngIf="isEdit"
                 />
               </div>
               <div class="form-floating">
                 <textarea
-                  class="form-control"
+                  class="input_app"
+                  *ngIf="!isEdit"
                   placeholder="Indicaciones del entrenamiento"
                 ></textarea>
-                <label for="floatingTextarea"
-                  >Indicaciones del entrenamiento</label
-                >
+                <textarea
+                  class="input_app"
+                  *ngIf="isEdit"
+                ></textarea>
               </div>
-              <div class="mb-3 mt-2">
-                <label for="customRange1" class="form-label"
-                  >Nivel de intensidad</label
-                >
-                <input type="range" class="form-range" id="customRange1" />
-              </div>
+              
+              
             </div>
           </div>
         </div>
@@ -379,61 +378,55 @@
               <p class="text-body-secondary">Completa los siguientes datos:</p>
               <div class="form-floating">
                 <select
-                  class="form-select"
+                  class="input_app"
                   id="floatingSelect"
-                  aria-label="Selecciona el tipo de lugar de entrenamiento"
+                  aria-label="Selecciona el Tipo de entrenamiento"
                 >
-                  <option selected></option>
+                  <option selected>Tipo de lugar de entrenamiento</option>
                   <option value="1">Entrenamiento en cinta</option>
                   <option value="2">Entrenamiento en pista</option>
                   <option value="3">Entrenamiento en terreno ondulado</option>
                   <option value="3">Entrenamiento en plano</option>
                 </select>
-                <label for="floatingSelect"
-                  >Selecciona el tipo de lugar de entrenamiento</label
-                >
+               
               </div>
 
               <div class="form-floating mt-2">
                 <select
-                  class="form-select"
+                  class="input_app"
                   id="floatingSelect"
                   aria-label="Selecciona el tipo de lugar de entrenamiento"
                 >
-                  <option selected></option>
+                  <option selected>tipo de entrenamiento</option>
                   <option value="1">Sesion regenerativa</option>
                   <option value="2">Sesion de velocidad</option>
                   <option value="3">Carrera larga</option>
                   <option value="3">Chequeo</option>
                 </select>
-                <label for="floatingSelect"
-                  >Selecciona el tipo de entrenamiento</label
-                >
+               
               </div>
 
               <div class="mb-3 mt-2">
                 <input
                   type="text"
-                  class="form-control"
+                  class="input_app"
                   id="titulo_lunes"
                   placeholder="Titulo del entrenamiento"
                 />
               </div>
               <div class="form-floating">
                 <textarea
-                  class="form-control"
+                  class="input_app"
+                  *ngIf="!isEdit"
                   placeholder="Indicaciones del entrenamiento"
                 ></textarea>
-                <label for="floatingTextarea"
-                  >Indicaciones del entrenamiento</label
-                >
+                <textarea
+                  class="input_app"
+                  *ngIf="isEdit"
+                ></textarea>
               </div>
-              <div class="mb-3 mt-2">
-                <label for="customRange1" class="form-label"
-                  >Nivel de intensidad</label
-                >
-                <input type="range" class="form-range" id="customRange1" />
-              </div>
+              
+              
             </div>
           </div>
         </div>
@@ -459,61 +452,55 @@
               <p class="text-body-secondary">Completa los siguientes datos:</p>
               <div class="form-floating">
                 <select
-                  class="form-select"
+                  class="input_app"
                   id="floatingSelect"
-                  aria-label="Selecciona el tipo de lugar de entrenamiento"
+                  aria-label="Selecciona el tipo de entrenamiento"
                 >
-                  <option selected></option>
+                  <option selected>tipo de lugar de entrenamiento</option>
                   <option value="1">Entrenamiento en cinta</option>
                   <option value="2">Entrenamiento en pista</option>
                   <option value="3">Entrenamiento en terreno ondulado</option>
                   <option value="3">Entrenamiento en plano</option>
                 </select>
-                <label for="floatingSelect"
-                  >Selecciona el tipo de lugar de entrenamiento</label
-                >
+                
               </div>
 
               <div class="form-floating mt-2">
                 <select
-                  class="form-select"
+                  class="input_app"
                   id="floatingSelect"
                   aria-label="Selecciona el tipo de lugar de entrenamiento"
                 >
-                  <option selected></option>
+                  <option selected>tipo de entrenamiento</option>
                   <option value="1">Sesion regenerativa</option>
                   <option value="2">Sesion de velocidad</option>
                   <option value="3">Carrera larga</option>
                   <option value="3">Chequeo</option>
                 </select>
-                <label for="floatingSelect"
-                  >Selecciona el tipo de entrenamiento</label
-                >
+                
               </div>
 
               <div class="mb-3 mt-2">
                 <input
                   type="text"
-                  class="form-control"
+                  class="input_app"
                   id="titulo_lunes"
                   placeholder="Titulo del entrenamiento"
                 />
               </div>
               <div class="form-floating">
                 <textarea
-                  class="form-control"
+                  class="input_app"
+                  *ngIf="!isEdit"
                   placeholder="Indicaciones del entrenamiento"
                 ></textarea>
-                <label for="floatingTextarea"
-                  >Indicaciones del entrenamiento</label
-                >
+                <textarea
+                  class="input_app"
+                  *ngIf="isEdit"
+                ></textarea>
               </div>
-              <div class="mb-3 mt-2">
-                <label for="customRange1" class="form-label"
-                  >Nivel de intensidad</label
-                >
-                <input type="range" class="form-range" id="customRange1" />
-              </div>
+              
+              
             </div>
           </div>
         </div>

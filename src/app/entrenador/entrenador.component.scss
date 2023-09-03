@@ -1,6 +1,7 @@
 main {
   width: 100vw;
   height: 100vh;
+
   nav {
     padding: 20px;
     background-color: #c70039;
@@ -10,7 +11,8 @@ main {
     width: 100%;
     z-index: 999;
   }
-  .section_header{
+
+  .section_header {
     margin-top: 70px;
     display: flex;
     gap: 5px;
@@ -19,34 +21,39 @@ main {
     align-content: flex-end;
     padding-bottom: 0;
   }
-  section{
+
+  section {
     display: flex;
     flex-direction: column;
 
     width: 100%;
-    h4{
-        font-size: 18px;
-        margin: 10px;
-        border-bottom: 2.5px solid #c70039;
+
+    h4 {
+      font-size: 18px;
+      margin: 10px;
+      border-bottom: 2.5px solid #c70039;
     }
-    .btn-add{
-        background-color:#c70039 ;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        padding: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: none;
-        img{
-            width: 30px;
-            height: 30px;
-            object-fit: cover;
-        }
+
+    .btn-add {
+      background-color: #c70039;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+
+      img {
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+      }
     }
   }
-  .entrenamientos{
+
+  .entrenamientos {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -54,25 +61,29 @@ main {
     margin: 0 auto;
     height: auto;
     margin-top: 20px;
-    .entrenamiento{
-        border-radius: 8px;
-        padding: 20px;
-        background-color: #f04a4c;
-        color: #ffffff;
-        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+    .entrenamiento {
+      border-radius: 8px;
+      padding: 20px;
+      background-color: #f04a4c;
+      color: #ffffff;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     }
-    .entrenamiento h3{
-        margin: 0;
-        font-size: 14px;
-        font-weight: 700;
-    }
-    .entrenamiento p{
+
+    .entrenamiento h3 {
       margin: 0;
-     
-  }
-    .entrenamiento_header{
-        margin-top: 10px;
-        font-size: 13px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .entrenamiento p {
+      margin: 0;
+
+    }
+
+    .entrenamiento_header {
+      margin-top: 10px;
+      font-size: 13px;
     }
   }
 }

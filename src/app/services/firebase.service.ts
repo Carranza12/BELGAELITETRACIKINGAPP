@@ -67,7 +67,7 @@ export class FirebaseService {
     try {
       const filters = query.filters || [];
       const sort = query.sort;
-      let ref: any = this.db.collection(collection).ref;
+      let ref: any = this.db.collection(collection).ref//.limit(20);
       filters.forEach((q: any) => {
         ref = ref.where(q.attr, q.operation, q.value);
       });

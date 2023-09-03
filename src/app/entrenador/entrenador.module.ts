@@ -7,6 +7,7 @@ import { AddModalComponent } from './add-modal/add-modal.component';
 import {DialogModule} from '@angular/cdk/dialog';
 import { AlumnosComponent } from './alumnos/alumnos.component';
 import { AddAlumnoComponent } from './add-alumno/add-alumno.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { AddAlumnoComponent } from './add-alumno/add-alumno.component';
   imports: [
     CommonModule,
     EntrenadorRoutingModule,
-    DialogModule
+    DialogModule,
+    ReactiveFormsModule
   ]
 })
 export class EntrenadorModule { }

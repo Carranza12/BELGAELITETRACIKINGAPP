@@ -1,7 +1,8 @@
 <main>
-  <nav>
-    <h2>Belga Elite CLUB</h2>
-  </nav>
+  <nav class="d-flex align-items-center">
+    <a ><img style="width: 60px;object-fit: cover;" src="../../assets//LOGO BELGA ROJO FONDO TRANSPARENTE.png" alt=""></a>
+    <p class="text-name p-0" style="margin: 0px;margin-left: 10px;margin-top: 20px;">Marcos Sánchez</p>
+</nav>
   <section>
     <header class="section_header">
       <a routerLink="/entrenador" class="btn-add"
@@ -77,10 +78,10 @@
                   aria-label="Selecciona el tipo de lugar de entrenamiento"
                 >
                   <option >Tipo de lugar de entrenamiento</option>
-                  <option value="1" >Entrenamiento en cinta</option>
-                  <option value="2">Entrenamiento en pista</option>
-                  <option value="3">Entrenamiento en terreno ondulado</option>
-                  <option value="4">Entrenamiento en plano</option>
+                  <option value="Entrenamiento en cinta" >Entrenamiento en cinta</option>
+                  <option value="Entrenamiento en pista">Entrenamiento en pista</option>
+                  <option value="Entrenamiento en terreno ondulado">Entrenamiento en terreno ondulado</option>
+                  <option value="Entrenamiento en plano">Entrenamiento en plano</option>
                 </select>
                 <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['tipo_lugar_lunes'].valid && 
                 entrenamientoFormGroup.controls['tipo_lugar_lunes']?.touched"> Este campo es obligatorio.</span>
@@ -95,10 +96,11 @@
                   aria-label="Tipo de entrenamiento"
                 >
                   <option  class="input_placeholder">Tipo de entrenamiento</option>
-                  <option value="1">Sesion regenerativa</option>
-                  <option value="2">Sesion de velocidad</option>
-                  <option value="3" >Carrera larga</option>
-                  <option value="4">Chequeo</option>
+                  <option value="Sesion regenerativa">Sesion regenerativa</option>
+                  <option value="Sesion de velocidad">Sesion de velocidad</option>
+                  <option value="Carrera larga">Carrera larga</option>
+                  <option value="Chequeo Interno">Chequeo Interno</option>
+                  <option value="Competencia">Competencia</option>
                 </select>
                 <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['tipo_entrenamiento_lunes'].valid && 
                 entrenamientoFormGroup.controls['tipo_entrenamiento_lunes']?.touched"> Este campo es obligatorio.</span>
@@ -163,10 +165,10 @@
                   aria-label="Selecciona tipo de entrenamiento"
                 >
                   <option >Tipo de lugar de entrenamiento</option>
-                  <option value="1">Entrenamiento en cinta</option>
-                  <option value="2">Entrenamiento en pista</option>
-                  <option value="3">Entrenamiento en terreno ondulado</option>
-                  <option value="3">Entrenamiento en plano</option>
+                  <option value="Entrenamiento en cinta" >Entrenamiento en cinta</option>
+                  <option value="Entrenamiento en pista">Entrenamiento en pista</option>
+                  <option value="Entrenamiento en terreno ondulado">Entrenamiento en terreno ondulado</option>
+                  <option value="Entrenamiento en plano">Entrenamiento en plano</option>
                 </select>
                 <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['tipo_lugar_martes'].valid && 
                 entrenamientoFormGroup.controls['tipo_lugar_martes']?.touched"> Este campo es obligatorio.</span>
@@ -180,10 +182,11 @@
                   aria-label="Selecciona el tipo de entrenamiento"
                 >
                   <option >Tipo de entrenamiento</option>
-                  <option value="1">Sesion regenerativa</option>
-                  <option value="2">Sesion de velocidad</option>
-                  <option value="3">Carrera larga</option>
-                  <option value="3">Chequeo</option>
+                  <option value="Sesion regenerativa">Sesion regenerativa</option>
+                  <option value="Sesion de velocidad">Sesion de velocidad</option>
+                  <option value="Carrera larga">Carrera larga</option>
+                  <option value="Chequeo Interno">Chequeo Interno</option>
+                  <option value="Competencia">Competencia</option>
                 </select>
                 <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['tipo_entrenamiento_martes'].valid && 
                 entrenamientoFormGroup.controls['tipo_entrenamiento_martes']?.touched"> Este campo es obligatorio.</span>
@@ -248,10 +251,10 @@
                   aria-label="Selecciona el "
                 >
                   <option >Tipo de lugar de entrenamiento</option>
-                  <option value="1">Entrenamiento en cinta</option>
-                  <option value="2">Entrenamiento en pista</option>
-                  <option value="3">Entrenamiento en terreno ondulado</option>
-                  <option value="3">Entrenamiento en plano</option>
+                  <option value="Entrenamiento en cinta" >Entrenamiento en cinta</option>
+                  <option value="Entrenamiento en pista">Entrenamiento en pista</option>
+                  <option value="Entrenamiento en terreno ondulado">Entrenamiento en terreno ondulado</option>
+                  <option value="Entrenamiento en plano">Entrenamiento en plano</option>
                 </select>
                 <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['tipo_lugar_miercoles'].valid && 
                 entrenamientoFormGroup.controls['tipo_lugar_miercoles']?.touched"> Este campo es obligatorio.</span>
@@ -266,10 +269,11 @@
                   aria-label="Selecciona el tipo de lugar de entrenamiento"
                 >
                   <option >Tipo de entrenamiento</option>
-                  <option value="1">Sesion regenerativa</option>
-                  <option value="2">Sesion de velocidad</option>
-                  <option value="3">Carrera larga</option>
-                  <option value="3">Chequeo</option>
+                  <option value="Sesion regenerativa">Sesion regenerativa</option>
+                  <option value="Sesion de velocidad">Sesion de velocidad</option>
+                  <option value="Carrera larga">Carrera larga</option>
+                  <option value="Chequeo Interno">Chequeo Interno</option>
+                  <option value="Competencia">Competencia</option>
                 </select>
                 <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['tipo_entrenamiento_miercoles'].valid && 
                 entrenamientoFormGroup.controls['tipo_entrenamiento_miercoles']?.touched"> Este campo es obligatorio.</span>
@@ -335,10 +339,10 @@
                   aria-label="Selecciona el tipo de entrenamiento"
                 >
                   <option >Tipo de lugar de entrenamiento</option>
-                  <option value="1">Entrenamiento en cinta</option>
-                  <option value="2">Entrenamiento en pista</option>
-                  <option value="3">Entrenamiento en terreno ondulado</option>
-                  <option value="3">Entrenamiento en plano</option>
+                  <option value="Entrenamiento en cinta" >Entrenamiento en cinta</option>
+                  <option value="Entrenamiento en pista">Entrenamiento en pista</option>
+                  <option value="Entrenamiento en terreno ondulado">Entrenamiento en terreno ondulado</option>
+                  <option value="Entrenamiento en plano">Entrenamiento en plano</option>
                 </select>
                 <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['tipo_lugar_jueves'].valid && 
                 entrenamientoFormGroup.controls['tipo_lugar_jueves']?.touched"> Este campo es obligatorio.</span>
@@ -352,10 +356,11 @@
                   aria-label="Selecciona el tipo de lugar de entrenamiento"
                 >
                   <option >Tipo de entrenamiento</option>
-                  <option value="1">Sesion regenerativa</option>
-                  <option value="2">Sesion de velocidad</option>
-                  <option value="3">Carrera larga</option>
-                  <option value="3">Chequeo</option>
+                  <option value="Sesion regenerativa">Sesion regenerativa</option>
+                  <option value="Sesion de velocidad">Sesion de velocidad</option>
+                  <option value="Carrera larga">Carrera larga</option>
+                  <option value="Chequeo Interno">Chequeo Interno</option>
+                  <option value="Competencia">Competencia</option>
                 </select>
                 <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['tipo_entrenamiento_jueves'].valid && 
                 entrenamientoFormGroup.controls['tipo_entrenamiento_jueves']?.touched"> Este campo es obligatorio.</span>
@@ -420,10 +425,10 @@
                   aria-label="Selecciona el Tipo de entrenamiento"
                 >
                   <option >Tipo de lugar de entrenamiento</option>
-                  <option value="1">Entrenamiento en cinta</option>
-                  <option value="2">Entrenamiento en pista</option>
-                  <option value="3">Entrenamiento en terreno ondulado</option>
-                  <option value="3">Entrenamiento en plano</option>
+                  <option value="Entrenamiento en cinta" >Entrenamiento en cinta</option>
+                  <option value="Entrenamiento en pista">Entrenamiento en pista</option>
+                  <option value="Entrenamiento en terreno ondulado">Entrenamiento en terreno ondulado</option>
+                  <option value="Entrenamiento en plano">Entrenamiento en plano</option>
                 </select>
                 <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['tipo_lugar_viernes'].valid && 
                 entrenamientoFormGroup.controls['tipo_lugar_viernes']?.touched"> Este campo es obligatorio.</span>
@@ -437,10 +442,11 @@
                   aria-label="Selecciona el tipo de lugar de entrenamiento"
                 >
                   <option >Tipo de entrenamiento</option>
-                  <option value="1">Sesion regenerativa</option>
-                  <option value="2">Sesion de velocidad</option>
-                  <option value="3">Carrera larga</option>
-                  <option value="3">Chequeo</option>
+                  <option value="Sesion regenerativa">Sesion regenerativa</option>
+                  <option value="Sesion de velocidad">Sesion de velocidad</option>
+                  <option value="Carrera larga">Carrera larga</option>
+                  <option value="Chequeo Interno">Chequeo Interno</option>
+                  <option value="Competencia">Competencia</option>
                 </select>
                 <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['tipo_entrenamiento_viernes'].valid && 
                 entrenamientoFormGroup.controls['tipo_entrenamiento_viernes']?.touched"> Este campo es obligatorio.</span>
@@ -504,10 +510,10 @@
                   aria-label="Selecciona el tipo de entrenamiento"
                 >
                   <option >Tipo de lugar de entrenamiento</option>
-                  <option value="1">Entrenamiento en cinta</option>
-                  <option value="2">Entrenamiento en pista</option>
-                  <option value="3">Entrenamiento en terreno ondulado</option>
-                  <option value="3">Entrenamiento en plano</option>
+                  <option value="Entrenamiento en cinta" >Entrenamiento en cinta</option>
+                  <option value="Entrenamiento en pista">Entrenamiento en pista</option>
+                  <option value="Entrenamiento en terreno ondulado">Entrenamiento en terreno ondulado</option>
+                  <option value="Entrenamiento en plano">Entrenamiento en plano</option>
                 </select>
                 <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['tipo_lugar_domingo'].valid && 
                 entrenamientoFormGroup.controls['tipo_lugar_domingo']?.touched"> Este campo es obligatorio.</span>
@@ -521,10 +527,11 @@
                   aria-label="Selecciona el tipo de lugar de entrenamiento"
                 >
                   <option >Tipo de entrenamiento</option>
-                  <option value="1">Sesion regenerativa</option>
-                  <option value="2">Sesion de velocidad</option>
-                  <option value="3">Carrera larga</option>
-                  <option value="3">Chequeo</option>
+                  <option value="Sesion regenerativa">Sesion regenerativa</option>
+                  <option value="Sesion de velocidad">Sesion de velocidad</option>
+                  <option value="Carrera larga">Carrera larga</option>
+                  <option value="Chequeo Interno">Chequeo Interno</option>
+                  <option value="Competencia">Competencia</option>
                 </select>
                 <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['tipo_entrenamiento_domingo'].valid && 
                 entrenamientoFormGroup.controls['tipo_entrenamiento_domingo']?.touched"> Este campo es obligatorio.</span>

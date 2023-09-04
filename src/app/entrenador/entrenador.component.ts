@@ -56,28 +56,22 @@ export class EntrenadorComponent implements OnInit {
       document.getElementById(`btn_${index}`)?.addEventListener('click', () => {
         console.log('link copiado...')
         const link = `${url}/${alumno.id}/${entrenamiento.id}`
-        this.copiarAlPortapapeles(link)
+        this.copiarAlPortapapeles(link, alumno)
       });
     })
 
   
   }
 
-  copiarAlPortapapeles(texto: string) {
-    // Crea un elemento de texto temporal y selecciónalo
+  copiarAlPortapapeles(texto: string,alumno:any) {
+    const texto_personalizado = `Hola ${alumno.nombre_completo}, espero te encuentres muy bien, aquí te mando el entrenamiento de esta semana: ${texto} , ¡estaré viendo tus comentarios desde la aplicación!.`
     const elementoTemporal = this.renderer.createElement('textarea');
     this.renderer.setAttribute(elementoTemporal, 'readonly', '');
-    this.renderer.setProperty(elementoTemporal, 'value', texto);
+    this.renderer.setProperty(elementoTemporal, 'value', texto_personalizado);
     this.renderer.appendChild(document.body, elementoTemporal);
     elementoTemporal.select();
-  
-    // Copia el texto al portapapeles
     document.execCommand('copy');
-  
-    // Elimina el elemento temporal
     this.renderer.removeChild(document.body, elementoTemporal);
-  
-    // Puedes mostrar una notificación o mensaje de éxito aquí si lo deseas
     Swal.fire({
       icon: 'success',
       title: `Link copiado con exito: ${texto}` ,

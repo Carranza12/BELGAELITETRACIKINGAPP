@@ -131,7 +131,7 @@
      <section class="details_main" *ngIf="DetailsMain">
          <div class="card mt-5">
              <div class="card-body mt-3">
-                 <h1 class="fs-4">Detalles de esta semana</h1>
+                 <h1 class="fs-4" class="calendar_title">Detalles de esta semana</h1>
              </div>
              <div class="texts">
                  <p class="mb-1"></p>
@@ -146,7 +146,8 @@
      <section class="comments_main" *ngIf="CommentsMain">
          <div class="card mt-5">
             <div class="comments">
-                <h3>Comentarios</h3>
+                <h3 class="calendar_title">Comentarios</h3>
+                <h3 class="text-simple text-center" *ngIf="commentsList.length === 0" >¡Comentále a tu entrenador como <br>van tus entrenamientos!</h3>
                 <div class="comment" *ngFor="let item of commentsList">
                    <div class="comment_header">
                     <p>{{item.username}}</p>

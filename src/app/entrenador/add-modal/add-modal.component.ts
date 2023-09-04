@@ -146,6 +146,10 @@ export class AddModalComponent implements OnInit {
       titulo_domingo: this.entrenamientoFormGroup.controls["titulo_domingo"].value,
       indicaciones_domingo: this.entrenamientoFormGroup.controls["indicaciones_domingo"].value,
     }
+    if(this.paraList.length === 0){
+      Swal.fire('Error al guardar!', 'Por favor selecciona un alumno por lo menos.', 'warning');
+      return;
+    }
     this.spinner.show();
     if (!this.isEdit) {
       const res = await this._firebase.addDocument('entrenamientos', entrenamiento);

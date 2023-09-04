@@ -1,6 +1,7 @@
 <main>
-    <nav>
-        <h2>Belga Elite CLUB</h2>
+    <nav class="d-flex align-items-center">
+        <a ><img style="width: 60px;object-fit: cover;" src="../../assets//LOGO BELGA ROJO FONDO TRANSPARENTE.png" alt=""></a>
+        <p class="text-name p-0" style="margin: 0px;margin-left: 10px;margin-top: 20px;">Marcos Sánchez</p>
     </nav>
     <section>
         <header class="section_header">
@@ -11,7 +12,7 @@
         <div class="entrenamientos">
           <h3 *ngIf="entrenamientosList.length === 0" >No tienes entrenamientos creados, para crear uno, pulsa el boton de "+".</h3>
             <div class="entrenamiento" *ngFor="let item of entrenamientosList">
-                <h3>{{item.title}}</h3>
+                <h3>{{item.titulo_semana}}</h3>
                 <div class="entrenamiento_header">
                     <p class="title_entrenamiento">Para:</p>
                     <p *ngFor="let alumno of item.para">{{alumno.nombre_completo}}</p>

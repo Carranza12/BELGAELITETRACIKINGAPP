@@ -138,12 +138,14 @@ $menuBreakpoint: 768px;
     height: 100vh;
     overflow: auto;
     background: #FFFFFF;
+    border: none;
     .calendar {
         background: #FFFFFF;
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
         overflow-x: auto;
+        border: none;
         gap: 5px;
 
         .calendar_header {
@@ -161,7 +163,8 @@ $menuBreakpoint: 768px;
             .days_calendar {
                 width: 250px !important;
                 font-size: 24px;
-                
+                background: #EEEEEE;
+                border-radius: 13px;
             }
 
             .detail_calendar {
@@ -249,7 +252,13 @@ $menuBreakpoint: 768px;
     h3{
         font-size: 24px;
         font-weight: 600;
-        margin-bottom: 0;
+        margin-bottom: 30px;
+    }
+    .text-simple{
+        font-weight: 600;
+        font-size: 22px;
+        color:black;
+        font-family: 'Space Grotesk', sans-serif;
     }
     .comment{
         padding: 10px;

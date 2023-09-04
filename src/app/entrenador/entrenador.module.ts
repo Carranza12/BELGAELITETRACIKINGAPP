@@ -15,7 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     EntrenadorComponent,
     AddModalComponent,
     AlumnosComponent,
-    AddAlumnoComponent
+    AddAlumnoComponent,
   ],
   imports: [
     CommonModule,

@@ -6,6 +6,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class FirebaseService {
   public alumnos = this.initAlumnos()
+  public entrenamientos = this.initEntrenamientos();
   constructor(public db: AngularFirestore) {}
 
   public addDocument(
@@ -17,6 +18,10 @@ export class FirebaseService {
   
   public async initAlumnos(){
     return await this.getDocuments('alumnos',{})
+  }
+
+  public async initEntrenamientos(){
+    return await this.getDocuments('entrenamientos',{})
   }
 
   public removeDocument(
@@ -71,24 +76,16 @@ export class FirebaseService {
   public async getDocuments(collection: string, query: any): Promise<any[]> {
     try {
       const filters = query.filters || [];
-      const sort = query.sort;
       let ref: any = this.db.collection(collection).ref//.limit(20);
       filters.forEach((q: any) => {
         ref = ref.where(q.attr, q.operation, q.value);
       });
-      if (sort) {
-        if (sort.attr) {
-          ref = ref.orderBy(sort.attr, sort.asc ? 'asc' : 'desc');
-        }
-        if (sort.limit > 0) {
-          ref = ref.limit(sort.limit);
-        }
-      }
       let res = await ref.get();
       if (res.empty) {
         return [];
       }
       const docs = res.docs;
+
       let data = docs.map((doc: any) => ({
         ...doc.data(),
         id: doc.id,

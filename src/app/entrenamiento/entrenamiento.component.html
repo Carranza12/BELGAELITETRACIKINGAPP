@@ -1,8 +1,9 @@
 <main>
     <nav id="my-first">
         <ul>
-          <li class="logotype">
+          <li class="logotype d-flex align-items-end">
             <a ><img style="width: 80px;object-fit: cover;" src="../../assets//LOGO BELGA ROJO FONDO TRANSPARENTE.png" alt=""></a>
+            <p class="text-name">Hola,{{ alumnoInfo.nombre_completo }}!</p>
           </li>
           <li class="burger" (click)="toggleMenu()">
             <i *ngIf="isMenuOpen" class="material-icons"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
@@ -31,8 +32,8 @@
 
       <section class="calendar_main" *ngIf="calendarMain">
         <div class="card mt-5">
-         <div class="card-body">
-             <h1 class="fs-4 calendar_title" >Semana del 31 de agosto al 03 de septiembre</h1>
+         <div class="card-body mt-3">
+             <h1 class="fs-4 calendar_title" >{{ entrenamientoInfo.titulo_semana }}</h1>
          </div>
          <div class="calendar">
              <div class="calendar_header" style="height: 50px;">
@@ -61,9 +62,10 @@
                          <img  src="../../assets/icons/run.svg" alt="">
                      </div>
                      <div class="detail_calendar_body">
-                         <strong>Carrera larga</strong>
-                         <p> Entrenamiento en cinta</p>
-                         <p><strong style="font-size:18px">Indicaciones:</strong> Trotar en cinta durante 50 minutos muy suaves buscando buenas sensaciones</p>
+                         <strong>{{ entrenamientoInfo.titulo_lunes }}</strong>
+                         <p> {{entrenamientoInfo.tipo_lugar_lunes }}</p>
+                         <p><strong style="font-size:18px">Indicaciones:</strong> 
+                            {{entrenamientoInfo.indicaciones_lunes }}</p>
                      </div>
                  </div>
                  <div class="days_calendar detail_calendar">
@@ -71,9 +73,10 @@
                          <img  src="../../assets/icons/run.svg" alt="">
                      </div>
                      <div class="detail_calendar_body">
-                         <strong>Carrera larga</strong>
-                         <p> Entrenamiento en cinta</p>
-                         <p><strong style="font-size:18px">Indicaciones:</strong> Trotar en cinta durante 50 minutos muy suaves buscando buenas sensaciones</p>
+                         <strong>{{ entrenamientoInfo.titulo_martes }}</strong>
+                         <p> {{entrenamientoInfo.tipo_lugar_martes }}</p>
+                         <p><strong style="font-size:18px">Indicaciones:</strong> 
+                            {{entrenamientoInfo.indicaciones_martes }}</p>
                      </div>
                  </div>
                  <div class="days_calendar detail_calendar">
@@ -81,9 +84,10 @@
                          <img  src="../../assets/icons/run.svg" alt="">
                      </div>
                      <div class="detail_calendar_body">
-                         <strong>Carrera larga</strong>
-                         <p> Entrenamiento en cinta</p>
-                         <p><strong style="font-size:18px">Indicaciones:</strong> Trotar en cinta durante 50 minutos muy suaves buscando buenas sensaciones</p>
+                         <strong>{{ entrenamientoInfo.titulo_miercoles }}</strong>
+                         <p>  {{entrenamientoInfo.tipo_lugar_miercoles }}</p>
+                         <p><strong style="font-size:18px">Indicaciones:</strong> 
+                            {{entrenamientoInfo.indicaciones_miercoles }}</p>
                      </div>
                  </div>
                  <div class="days_calendar detail_calendar">
@@ -91,9 +95,10 @@
                          <img  src="../../assets/icons/run.svg" alt="">
                      </div>
                      <div class="detail_calendar_body">
-                         <strong>Carrera larga</strong>
-                         <p> Entrenamiento en cinta</p>
-                         <p><strong style="font-size:18px">Indicaciones:</strong> Trotar en cinta durante 50 minutos muy suaves buscando buenas sensaciones</p>
+                         <strong>{{ entrenamientoInfo.titulo_jueves }}</strong>
+                         <p>  {{entrenamientoInfo.tipo_lugar_jueves }}</p>
+                         <p><strong style="font-size:18px">Indicaciones:</strong>
+                            {{entrenamientoInfo.indicaciones_jueves }}</p>
                      </div>
                  </div>
                  <div class="days_calendar detail_calendar">
@@ -101,9 +106,10 @@
                          <img  src="../../assets/icons/run.svg" alt="">
                      </div>
                      <div class="detail_calendar_body">
-                         <strong>Carrera larga</strong>
-                         <p> Entrenamiento en cinta</p>
-                         <p><strong style="font-size:18px">Indicaciones:</strong> Trotar en cinta durante 50 minutos muy suaves buscando buenas sensaciones</p>
+                         <strong>{{ entrenamientoInfo.titulo_viernes }}</strong>
+                         <p>  {{entrenamientoInfo.tipo_lugar_viernes }}</p>
+                         <p><strong style="font-size:18px">Indicaciones:</strong>
+                            {{entrenamientoInfo.indicaciones_viernes }}</p>
                      </div>
                  </div>
                  <div class="days_calendar detail_calendar">
@@ -111,9 +117,10 @@
                          <img  src="../../assets/icons/run.svg" alt="">
                      </div>
                      <div class="detail_calendar_body">
-                         <strong>Carrera larga</strong>
-                         <p> Entrenamiento en cinta</p>
-                         <p><strong style="font-size:18px">Indicaciones:</strong> Trotar en cinta durante 50 minutos muy suaves buscando buenas sensaciones</p>
+                         <strong>{{ entrenamientoInfo.titulo_domingo }}</strong>
+                         <p>  {{entrenamientoInfo.tipo_lugar_domingo }}</p>
+                         <p><strong style="font-size:18px">Indicaciones:</strong> 
+                            {{entrenamientoInfo.indicaciones_domingo }}</p>
                      </div>
                  </div>
              </div>
@@ -123,14 +130,14 @@
  
      <section class="details_main" *ngIf="DetailsMain">
          <div class="card mt-5">
-             <div class="card-body">
+             <div class="card-body mt-3">
                  <h1 class="fs-4">Detalles de esta semana</h1>
              </div>
              <div class="texts">
                  <p class="mb-1"></p>
-                 <p class="mb-4"><em>" el objetivo de esta semana es disfrutar el entrenamiento y tener buenas sensaciones"</em></p>
+                 <p class="mb-4"><em>Espero estes muy bien {{ alumnoInfo.nombre_completo }}!<br> El objetivo de esta semana es:<br> {{entrenamientoInfo.objetivo_semana}}</em></p>
                  <p  class="mb-4"><strong>Te deseo mucho éxito en todos tus entrenamientos de esta semana!</strong></p>
-                 <p>Marcos Sanchez <br> Head Coach Belga Elite Runnning Club</p>
+                 <p>Marcos Sánchez <br> <strong>Head Coach Belga Elite Running Club</strong></p>
              </div>
              
          </div>
@@ -138,31 +145,43 @@
  
      <section class="comments_main" *ngIf="CommentsMain">
          <div class="card mt-5">
-             <section id="comments">
-                 <header>
-                   <h1>Comentarios</h1>
-                 </header>
-                 <div  class="comment">
-                   <div class="username" style="font-size: 18px;">user123456 <span style="font-size: 14px;font-weight: 400;" class="text-muted">hace un momento...</span></div>
-                   <img src="../../assets/avatar.png" class="avatar" alt="user image" />
-                   <p>Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah.  Blah?...</p>
-                   <p>Blah blah blah blah blah blah blah blah blah blah.</p>
-                 </div>
-                 <form>
-                     <div class="row m-3">
-                         <div class="col-12 mb-2">
-                             <input type="text" class="input_app" placeholder="Nombre" aria-label="Username" aria-describedby="basic-addon1">
-                         </div>
-                         <div class="form-floating mb-2">
-                             <textarea style="height: 200px!important;" class="input_app" placeholder="Que tal te fue en el entrenamiento?" id="floatingTextarea"></textarea>
-                      
-                         </div>
-                         <div class="col-12 mb-2">
-                             <button type="button" class="btn btn-primary btn-customize" >Publicar</button>
-                         </div>
-                     </div>
-                   </form>
-               </section>
+            <div class="comments">
+                <h3>Comentarios</h3>
+                <div class="comment" *ngFor="let item of commentsList">
+                   <div class="comment_header">
+                    <p>{{item.username}}</p>
+                    
+                    <p class="ago">{{item.creationDate | date}}</p>
+                    <svg (click)="deleteComment(item.id)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                      </svg>
+                   </div>
+                   <div class="comment_body">
+                        <p>{{item.comment}}</p>
+                   </div>
+    
+                </div>
+
+                <form>
+                    <div class="row">
+                        <div class="col-12 mb-2">
+                            <input [formControl]="usernameControl" type="text" class="input_app" placeholder="Nombre" aria-label="Username" aria-describedby="basic-addon1">
+                            <span class="text-error" *ngIf="!usernameControl.valid && 
+                            usernameControl.touched"> Este campo es obligatorio.</span>
+                           </div>
+                        <div class="form-floating mb-2">
+                            <textarea [formControl]="CommentControl" style="height: 200px!important;" class="input_app" placeholder="Que tal te fue en el entrenamiento?" id="floatingTextarea"></textarea>
+                            <span class="text-error" *ngIf="!CommentControl.valid && 
+                            CommentControl.touched"> Este campo es obligatorio.</span>
+                        </div>
+                        <div class="col-12 mb-2">
+                            <button (click)="submit()" [disabled]="CommentControl.invalid || usernameControl.invalid" type="button" class="btn btn-primary btn-customize" >Publicar</button>
+                        </div>
+                    </div>
+                  </form>
+              </div>
+    
+              
  
               
          </div>

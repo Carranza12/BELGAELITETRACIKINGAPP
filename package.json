@@ -12,7 +12,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^16.2.0",
-    "@angular/cdk": "^16.2.2",
+    "@angular/cdk": "^15.0.0",
     "@angular/common": "^16.2.0",
     "@angular/compiler": "^16.2.0",
     "@angular/core": "^16.2.0",
@@ -26,6 +26,7 @@
     "firebase": "^10.3.1",
     "firebase-tools": "^12.5.2",
     "ng": "^0.0.0",
+    "ngx-spinner": "^16.0.2",
     "rxjs": "~7.8.0",
     "sweetalert2": "^11.7.27",
     "tslib": "^2.3.0",

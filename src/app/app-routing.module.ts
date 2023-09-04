@@ -11,7 +11,7 @@ const routes: Routes = [
   { path:'entrenador/alumnos',component: AlumnosComponent },
   { path:'entrenador/alumnos/nuevo', component: AddAlumnoComponent},
   { path:'entrenador/alumnos/editar/:id',component:AddAlumnoComponent },
-  { path: 'entrenamiento', loadChildren: () => import('./entrenamiento/entrenamiento.module').then(m => m.EntrenamientoModule) }
+  { path: 'entrenamiento/:AlumnoID/:EntrenamientoID', loadChildren: () => import('./entrenamiento/entrenamiento.module').then(m => m.EntrenamientoModule) }
 ];
 
 @NgModule({

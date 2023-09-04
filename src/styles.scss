@@ -7,6 +7,13 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.alumno_contenedor_link{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .input_app {
     background-color: #F5F5F5;
     color: #A4A4A4!important;

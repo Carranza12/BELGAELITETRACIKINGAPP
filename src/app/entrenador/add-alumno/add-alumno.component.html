@@ -13,14 +13,14 @@
 
                 <div class="row">
                     <div class="col-8 mb-3 mt-2">
-                        <input type="text"  class="form-control"
+                        <input type="text"  class="input_app"
                             formControlName="nombre_completo" placeholder="Nombre completo" />
                         <span class="text-error" *ngIf="!alumnoFormGroup.controls['nombre_completo'].valid && 
                         alumnoFormGroup.controls['nombre_completo']?.touched"> El nombre completo es obligatorio.</span>
                     </div>
 
                     <div class="col-4 mb-3 mt-2">
-                        <input type="number"  formControlName="edad"  class="form-control"
+                        <input type="number"  formControlName="edad"  class="input_app"
                             placeholder="Edad" />
                             <span class="text-error" *ngIf="!alumnoFormGroup.controls['edad'].valid && 
                             alumnoFormGroup.controls['edad']?.touched"> La edad es obligatoria.</span>
@@ -28,7 +28,7 @@
 
                     <div class="col-12 mb-3 mt-2">
                         <label for="" class="mb-1">Fecha de ingreso</label>
-                        <input type="date"  class="form-control"
+                        <input type="date"  class="input_app"
                             formControlName="fecha_ingreso" />
                             <span class="text-error" *ngIf="!alumnoFormGroup.controls['fecha_ingreso'].valid && 
                             alumnoFormGroup.controls['fecha_ingreso']?.touched"> La fecha de ingreso es obligatoria.</span>
@@ -36,7 +36,7 @@
 
                     <div class="col-12 mb-3 mt-2">
                         <label for="" class="mb-1">Estatus del atleta</label>
-                        <select formControlName="status" class="form-select">
+                        <select formControlName="status" class="input_app">
                             <option selected value="">Selecciona</option>
                             <option value="Activo" >Activo</option>
                             <option value="Inactivo">Inactivo</option>

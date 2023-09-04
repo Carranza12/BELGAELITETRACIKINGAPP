@@ -18,7 +18,7 @@
             id="titulo_semana"
             formControlName="titulo_semana"
             placeholder="Titulo de la semana"
-            [value]="isEdit ? entrenamientoExample.titulo_semana: ''"
+
           />
           <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['titulo_semana'].valid && 
           entrenamientoFormGroup.controls['titulo_semana']?.touched"> Este campo es obligatorio.</span>
@@ -32,16 +32,19 @@
             formControlName="objetivo_semana"
           ></textarea>
           <textarea
+          formControlName="objetivo_semana"
             class="input_app"
             *ngIf="isEdit"
-          >{{ entrenamientoExample.objetivo_semana }}</textarea>
+          ></textarea>
           <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['objetivo_semana'].valid && 
           entrenamientoFormGroup.controls['objetivo_semana']?.touched"> Este campo es obligatorio.</span>
         </div>
 
         <ul class="list-group mt-4">
           <p>Para:</p>
-          <li class="list-group-item" aria-current="true" *ngFor="let alumno of alumnos" >
+          <li (click)="addPara(alumno)" class="list-group-item" aria-current="true"
+          [ngClass]="{'active': isAlumnoInParaList(alumno)}"
+          *ngFor="let alumno of alumnos" >
             {{alumno.nombre_completo}}
           </li>
         
@@ -73,8 +76,8 @@
                   id="floatingSelect"
                   aria-label="Selecciona el tipo de lugar de entrenamiento"
                 >
-                  <option selected>Tipo de lugar de entrenamiento</option>
-                  <option value="1" selected>Entrenamiento en cinta</option>
+                  <option >Tipo de lugar de entrenamiento</option>
+                  <option value="1" >Entrenamiento en cinta</option>
                   <option value="2">Entrenamiento en pista</option>
                   <option value="3">Entrenamiento en terreno ondulado</option>
                   <option value="4">Entrenamiento en plano</option>
@@ -91,7 +94,7 @@
                   place
                   aria-label="Tipo de entrenamiento"
                 >
-                  <option selected class="input_placeholder">Tipo de entrenamiento</option>
+                  <option  class="input_placeholder">Tipo de entrenamiento</option>
                   <option value="1">Sesion regenerativa</option>
                   <option value="2">Sesion de velocidad</option>
                   <option value="3" >Carrera larga</option>
@@ -103,23 +106,29 @@
 
               <div class="mb-3 mt-2">
                 <input
+                formControlName="titulo_lunes"
                   type="text"
-                  [value]="isEdit ? entrenamientoExample.lunes.titulo: ''"
                   class="input_app"
                   id="titulo_lunes"
                   placeholder="Titulo del entrenamiento"
                 />
+                <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['titulo_lunes'].valid && 
+                entrenamientoFormGroup.controls['titulo_lunes']?.touched"> Este campo es obligatorio.</span>
               </div>
               <div class="form-floating">
                 <textarea
+                formControlName="indicaciones_lunes"
                   class="input_app"
                   *ngIf="!isEdit"
                   placeholder="Indicaciones del entrenamiento"
                 ></textarea>
                 <textarea
+                formControlName="indicaciones_lunes"
                   class="input_app"
                   *ngIf="isEdit"
-                >{{ isEdit ? entrenamientoExample.lunes.indicaciones : '' }}</textarea>
+                ></textarea>
+                <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['indicaciones_lunes'].valid && 
+                entrenamientoFormGroup.controls['indicaciones_lunes']?.touched"> Este campo es obligatorio.</span>
               </div>
               
               
@@ -148,53 +157,64 @@
               <p class="text-body-secondary">Completa los siguientes datos:</p>
               <div class="form-floating">
                 <select
+                formControlName="tipo_lugar_martes"
                   class="input_app"
                   id="floatingSelect"
-                  aria-label="Selecciona el tipo de lugar de entrenamiento"
+                  aria-label="Selecciona tipo de entrenamiento"
                 >
-                  <option selected>tipo de lugar de entrenamiento</option>
+                  <option >Tipo de lugar de entrenamiento</option>
                   <option value="1">Entrenamiento en cinta</option>
                   <option value="2">Entrenamiento en pista</option>
                   <option value="3">Entrenamiento en terreno ondulado</option>
                   <option value="3">Entrenamiento en plano</option>
                 </select>
-              
+                <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['tipo_lugar_martes'].valid && 
+                entrenamientoFormGroup.controls['tipo_lugar_martes']?.touched"> Este campo es obligatorio.</span>
               </div>
 
               <div class="form-floating mt-2">
                 <select
+                formControlName="tipo_entrenamiento_martes"
                   class="input_app"
                   id="floatingSelect"
-                  aria-label="Selecciona el tipo de lugar de entrenamiento"
+                  aria-label="Selecciona el tipo de entrenamiento"
                 >
-                  <option selected>tipo de entrenamiento</option>
+                  <option >Tipo de entrenamiento</option>
                   <option value="1">Sesion regenerativa</option>
                   <option value="2">Sesion de velocidad</option>
                   <option value="3">Carrera larga</option>
                   <option value="3">Chequeo</option>
                 </select>
-               
+                <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['tipo_entrenamiento_martes'].valid && 
+                entrenamientoFormGroup.controls['tipo_entrenamiento_martes']?.touched"> Este campo es obligatorio.</span>
               </div>
 
               <div class="mb-3 mt-2">
                 <input
+                formControlName="titulo_martes"
                   type="text"
                   class="input_app"
                   id="titulo_lunes"
                   placeholder="Titulo del entrenamiento"
                 />
+                <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['titulo_martes'].valid && 
+                entrenamientoFormGroup.controls['titulo_martes']?.touched"> Este campo es obligatorio.</span>
               </div>
               <div class="form-floating">
                 <textarea
+                  formControlName="indicaciones_martes"
                   class="input_app"
                   *ngIf="!isEdit"
                   placeholder="Indicaciones del entrenamiento"
                 ></textarea>
                 <textarea
+                  formControlName="indicaciones_martes"
                   class="input_app"
                   *ngIf="isEdit"
                   placeholder="Indicaciones del entrenamiento"
                 ></textarea>
+                <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['indicaciones_martes'].valid && 
+                entrenamientoFormGroup.controls['indicaciones_martes']?.touched"> Este campo es obligatorio.</span>
               </div>
               
             </div>
@@ -222,53 +242,65 @@
               <p class="text-body-secondary">Completa los siguientes datos:</p>
               <div class="form-floating">
                 <select
+                formControlName="tipo_lugar_miercoles"
                   class="input_app"
                   id="floatingSelect"
                   aria-label="Selecciona el "
                 >
-                  <option selected>tipo de lugar de entrenamiento</option>
+                  <option >Tipo de lugar de entrenamiento</option>
                   <option value="1">Entrenamiento en cinta</option>
                   <option value="2">Entrenamiento en pista</option>
                   <option value="3">Entrenamiento en terreno ondulado</option>
                   <option value="3">Entrenamiento en plano</option>
                 </select>
-                
+                <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['tipo_lugar_miercoles'].valid && 
+                entrenamientoFormGroup.controls['tipo_lugar_miercoles']?.touched"> Este campo es obligatorio.</span>
+
               </div>
 
               <div class="form-floating mt-2">
                 <select
+                formControlName="tipo_entrenamiento_miercoles"
                   class="input_app"
                   id="floatingSelect"
                   aria-label="Selecciona el tipo de lugar de entrenamiento"
                 >
-                  <option selected>tipo de entrenamiento</option>
+                  <option >Tipo de entrenamiento</option>
                   <option value="1">Sesion regenerativa</option>
                   <option value="2">Sesion de velocidad</option>
                   <option value="3">Carrera larga</option>
                   <option value="3">Chequeo</option>
                 </select>
-                
+                <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['tipo_entrenamiento_miercoles'].valid && 
+                entrenamientoFormGroup.controls['tipo_entrenamiento_miercoles']?.touched"> Este campo es obligatorio.</span>
+
               </div>
 
               <div class="mb-3 mt-2">
                 <input
+                formControlName="titulo_miercoles"
                   type="text"
                   class="input_app"
                   id="titulo_lunes"
                   placeholder="Titulo del entrenamiento"
                 />
+                <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['titulo_miercoles'].valid && 
+                entrenamientoFormGroup.controls['titulo_miercoles']?.touched"> Este campo es obligatorio.</span>
               </div>
               <div class="form-floating">
                 <textarea
+                  formControlName="indicaciones_miercoles"
                   class="input_app"
                   *ngIf="!isEdit"
                   placeholder="Indicaciones del entrenamiento"
                 ></textarea>
                 <textarea
+                  formControlName="indicaciones_miercoles"
                   class="input_app"
                   *ngIf="isEdit"
                 ></textarea>
-               
+                <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['indicaciones_miercoles'].valid && 
+                entrenamientoFormGroup.controls['indicaciones_miercoles']?.touched"> Este campo es obligatorio.</span>
               </div>
               
               
@@ -297,61 +329,65 @@
               <p class="text-body-secondary">Completa los siguientes datos:</p>
               <div class="form-floating">
                 <select
+                  formControlName="tipo_lugar_jueves"
                   class="input_app"
                   id="floatingSelect"
                   aria-label="Selecciona el tipo de entrenamiento"
                 >
-                  <option selected>tipo de lugar de entrenamiento</option>
+                  <option >Tipo de lugar de entrenamiento</option>
                   <option value="1">Entrenamiento en cinta</option>
                   <option value="2">Entrenamiento en pista</option>
                   <option value="3">Entrenamiento en terreno ondulado</option>
                   <option value="3">Entrenamiento en plano</option>
                 </select>
-                
+                <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['tipo_lugar_jueves'].valid && 
+                entrenamientoFormGroup.controls['tipo_lugar_jueves']?.touched"> Este campo es obligatorio.</span>
               </div>
 
               <div class="form-floating mt-2">
                 <select
+                  formControlName="tipo_entrenamiento_jueves"
                   class="input_app"
                   id="floatingSelect"
                   aria-label="Selecciona el tipo de lugar de entrenamiento"
                 >
-                  <option selected>tipo de entrenamiento</option>
+                  <option >Tipo de entrenamiento</option>
                   <option value="1">Sesion regenerativa</option>
                   <option value="2">Sesion de velocidad</option>
                   <option value="3">Carrera larga</option>
                   <option value="3">Chequeo</option>
                 </select>
-                
+                <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['tipo_entrenamiento_jueves'].valid && 
+                entrenamientoFormGroup.controls['tipo_entrenamiento_jueves']?.touched"> Este campo es obligatorio.</span>
               </div>
 
               <div class="mb-3 mt-2">
                 <input
+                formControlName="titulo_jueves"
                   type="text"
                   class="input_app"
                   id="titulo_lunes"
                   *ngIf="!isEdit"
                   placeholder="Titulo del entrenamiento"
                 />
-                <input
-                  type="text"
-                  class="input_app"
-                  id="titulo_lunes"
-                  *ngIf="isEdit"
-                />
+                <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['titulo_jueves'].valid && 
+                entrenamientoFormGroup.controls['titulo_jueves']?.touched"> Este campo es obligatorio.</span>
               </div>
               <div class="form-floating">
                 <textarea
+                  formControlName="indicaciones_jueves"
                   class="input_app"
                   *ngIf="!isEdit"
                   placeholder="Indicaciones del entrenamiento"
                 ></textarea>
                 <textarea
+                  formControlName="indicaciones_jueves"
                   class="input_app"
                   *ngIf="isEdit"
                 ></textarea>
               </div>
-              
+              <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['indicaciones_jueves'].valid && 
+                entrenamientoFormGroup.controls['indicaciones_jueves']?.touched"> Este campo es obligatorio.</span>
               
             </div>
           </div>
@@ -378,54 +414,64 @@
               <p class="text-body-secondary">Completa los siguientes datos:</p>
               <div class="form-floating">
                 <select
+                  formControlName="tipo_lugar_viernes"
                   class="input_app"
                   id="floatingSelect"
                   aria-label="Selecciona el Tipo de entrenamiento"
                 >
-                  <option selected>Tipo de lugar de entrenamiento</option>
+                  <option >Tipo de lugar de entrenamiento</option>
                   <option value="1">Entrenamiento en cinta</option>
                   <option value="2">Entrenamiento en pista</option>
                   <option value="3">Entrenamiento en terreno ondulado</option>
                   <option value="3">Entrenamiento en plano</option>
                 </select>
-               
+                <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['tipo_lugar_viernes'].valid && 
+                entrenamientoFormGroup.controls['tipo_lugar_viernes']?.touched"> Este campo es obligatorio.</span>
               </div>
 
               <div class="form-floating mt-2">
                 <select
+                  formControlName="tipo_entrenamiento_viernes"
                   class="input_app"
                   id="floatingSelect"
                   aria-label="Selecciona el tipo de lugar de entrenamiento"
                 >
-                  <option selected>tipo de entrenamiento</option>
+                  <option >Tipo de entrenamiento</option>
                   <option value="1">Sesion regenerativa</option>
                   <option value="2">Sesion de velocidad</option>
                   <option value="3">Carrera larga</option>
                   <option value="3">Chequeo</option>
                 </select>
-               
+                <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['tipo_entrenamiento_viernes'].valid && 
+                entrenamientoFormGroup.controls['tipo_entrenamiento_viernes']?.touched"> Este campo es obligatorio.</span>
               </div>
 
               <div class="mb-3 mt-2">
                 <input
+                formControlName="titulo_viernes"
                   type="text"
                   class="input_app"
-                  id="titulo_lunes"
                   placeholder="Titulo del entrenamiento"
                 />
+                <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['titulo_viernes'].valid && 
+                entrenamientoFormGroup.controls['titulo_viernes']?.touched"> Este campo es obligatorio.</span>
+              
               </div>
               <div class="form-floating">
                 <textarea
+                formControlName="indicaciones_viernes"
                   class="input_app"
                   *ngIf="!isEdit"
                   placeholder="Indicaciones del entrenamiento"
                 ></textarea>
                 <textarea
+                formControlName="indicaciones_viernes"
                   class="input_app"
                   *ngIf="isEdit"
                 ></textarea>
               </div>
-              
+              <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['indicaciones_viernes'].valid && 
+                entrenamientoFormGroup.controls['indicaciones_viernes']?.touched"> Este campo es obligatorio.</span>
               
             </div>
           </div>
@@ -452,60 +498,68 @@
               <p class="text-body-secondary">Completa los siguientes datos:</p>
               <div class="form-floating">
                 <select
+                formControlName="tipo_lugar_domingo"
                   class="input_app"
                   id="floatingSelect"
                   aria-label="Selecciona el tipo de entrenamiento"
                 >
-                  <option selected>tipo de lugar de entrenamiento</option>
+                  <option >Tipo de lugar de entrenamiento</option>
                   <option value="1">Entrenamiento en cinta</option>
                   <option value="2">Entrenamiento en pista</option>
                   <option value="3">Entrenamiento en terreno ondulado</option>
                   <option value="3">Entrenamiento en plano</option>
                 </select>
-                
+                <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['tipo_lugar_domingo'].valid && 
+                entrenamientoFormGroup.controls['tipo_lugar_domingo']?.touched"> Este campo es obligatorio.</span>
               </div>
 
               <div class="form-floating mt-2">
                 <select
+                formControlName="tipo_entrenamiento_domingo"
                   class="input_app"
                   id="floatingSelect"
                   aria-label="Selecciona el tipo de lugar de entrenamiento"
                 >
-                  <option selected>tipo de entrenamiento</option>
+                  <option >Tipo de entrenamiento</option>
                   <option value="1">Sesion regenerativa</option>
                   <option value="2">Sesion de velocidad</option>
                   <option value="3">Carrera larga</option>
                   <option value="3">Chequeo</option>
                 </select>
-                
+                <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['tipo_entrenamiento_domingo'].valid && 
+                entrenamientoFormGroup.controls['tipo_entrenamiento_domingo']?.touched"> Este campo es obligatorio.</span>
               </div>
 
               <div class="mb-3 mt-2">
                 <input
+                formControlName="titulo_domingo"
                   type="text"
                   class="input_app"
-                  id="titulo_lunes"
                   placeholder="Titulo del entrenamiento"
                 />
+                <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['titulo_domingo'].valid && 
+                entrenamientoFormGroup.controls['titulo_domingo']?.touched"> Este campo es obligatorio.</span>
               </div>
               <div class="form-floating">
                 <textarea
+                  formControlName="indicaciones_domingo"
                   class="input_app"
                   *ngIf="!isEdit"
                   placeholder="Indicaciones del entrenamiento"
                 ></textarea>
                 <textarea
+                  formControlName="indicaciones_domingo"
                   class="input_app"
                   *ngIf="isEdit"
                 ></textarea>
+                <span class="text-error" *ngIf="!entrenamientoFormGroup.controls['indicaciones_domingo'].valid && 
+                entrenamientoFormGroup.controls['indicaciones_domingo']?.touched"> Este campo es obligatorio.</span>
               </div>
-              
-              
             </div>
           </div>
         </div>
 
-        <button type="button" class="btn btn-success btn-customize w-100">Guardar</button>
+        <button (click)="submit()" [disabled]="entrenamientoFormGroup.invalid" type="button" class="btn btn-success btn-customize w-100">Guardar</button>
       </form>
     </div>
   </section>

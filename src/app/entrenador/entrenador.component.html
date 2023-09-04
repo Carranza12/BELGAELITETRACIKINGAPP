@@ -9,39 +9,21 @@
         <a routerLink="/entrenador/alumnos" class="btn-add"><img src="../../assets/icons/users.svg" alt=""></a>
         </header>
         <div class="entrenamientos">
-            <div class="entrenamiento" *ngFor="let item of entrenamientos">
+          <h3 *ngIf="entrenamientosList.length === 0" >No tienes entrenamientos creados, para crear uno, pulsa el boton de "+".</h3>
+            <div class="entrenamiento" *ngFor="let item of entrenamientosList">
                 <h3>{{item.title}}</h3>
                 <div class="entrenamiento_header">
                     <p class="title_entrenamiento">Para:</p>
-                    <p *ngFor="let alumno of item.para">{{alumno.nombre}}</p>
+                    <p *ngFor="let alumno of item.para">{{alumno.nombre_completo}}</p>
                 </div>
                 <div class="entrenamiento_header">
                     <p class="title_entrenamiento">Objetivo de la semana:</p>
-                    <p>{{item.objetivo}}</p>
+                    <p>{{item.objetivo_semana}}</p>
                 </div>
-                <img class="icon_shared" src="../../assets/icons/share-2.svg" alt="">
-                <img class="icon_shared" (click)="openEdit('21212')" src="../../assets/icons/edit.svg" alt="">
-                <img class="icon_shared" src="../../assets/icons/trash-2.svg" alt="" data-bs-toggle="modal" data-bs-target="#DeleteModal">
+                <img class="icon_shared" (click)="openSendDialog(item)" src="../../assets/icons/share-2.svg" alt="">
+                <img class="icon_shared" (click)="openEdit(item)" src="../../assets/icons/edit.svg" alt="">
+                <img class="icon_shared" src="../../assets/icons/trash-2.svg" alt="" (click)="deleteEntrenamiento(item.id)">
             </div>
         </div>
     </section>
 </main>
-
-  <!-- Modal -->
-  <div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="DeleteModal">¿Seguro que quieres eliminar?</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Al eliminar este entrenamiento, los alumnos que estaban asignados no podrán volver a verlo.
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-danger">Si, elimínalo</button>
-        </div>
-      </div>
-    </div>
-  </div>

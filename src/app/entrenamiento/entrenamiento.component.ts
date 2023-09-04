@@ -99,7 +99,6 @@ export class EntrenamientoComponent implements OnInit {
     const res = await this._firebase.addDocument("comments", comment);
     Swal.fire('Publicado!', 'Ahora tu entrenador podrá saber como te sientes.', 'success');
     this.CommentControl.reset()
-    this.usernameControl.reset()
     this.commentsList.push({...comment, id: res.id})
     this.spinner.hide()
   }

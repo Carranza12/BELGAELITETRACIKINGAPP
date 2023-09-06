@@ -45,6 +45,21 @@
                         <span class="text-error" *ngIf="!alumnoFormGroup.controls['status'].valid && 
                         alumnoFormGroup.controls['status']?.touched"> El status es obligatorio.</span>
                     </div>
+                    <div class="form-floating">
+                        <textarea
+                          class="input_app"
+                          *ngIf="!isEdit"
+                          placeholder="Objetivo del atleta"
+                          formControlName="objetivo"
+                        ></textarea>
+                        <textarea
+                        formControlName="objetivo"
+                          class="input_app"
+                          *ngIf="isEdit"
+                        ></textarea>
+                        <span class="text-error" *ngIf="!alumnoFormGroup.controls['objetivo'].valid && 
+                        alumnoFormGroup.controls['objetivo']?.touched"> Este campo es obligatorio.</span>
+                      </div>
                     <div class="col-12 mb-3 mt-2">
                         <button [disabled]="alumnoFormGroup.invalid" type="button"
                             class="btn btn-success btn-customize w-100"

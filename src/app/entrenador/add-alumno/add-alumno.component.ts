@@ -19,6 +19,7 @@ export class AddAlumnoComponent implements OnInit {
     edad: new FormControl('', Validators.required),
     fecha_ingreso: new FormControl('', Validators.required),
     status: new FormControl('', Validators.required),
+    objetivo: new FormControl('', Validators.required)
   })
 
 
@@ -41,6 +42,7 @@ export class AddAlumnoComponent implements OnInit {
       this.alumnoFormGroup.controls["edad"].setValue(alumno.edad);
       this.alumnoFormGroup.controls["fecha_ingreso"].setValue(alumno.fecha_ingreso);
       this.alumnoFormGroup.controls["status"].setValue(alumno.status);
+      this.alumnoFormGroup.controls["objetivo"].setValue(alumno.objetivo)
     }
     this.spinner.hide()
   }
@@ -55,6 +57,7 @@ export class AddAlumnoComponent implements OnInit {
       edad: this.alumnoFormGroup.controls["edad"].value,
       fecha_ingreso: this.alumnoFormGroup.controls["fecha_ingreso"].value,
       status: this.alumnoFormGroup.controls["status"].value,
+      objetivo: this.alumnoFormGroup.controls["objetivo"].value,
     }
     this.spinner.show();
     if (!this.isEdit) {

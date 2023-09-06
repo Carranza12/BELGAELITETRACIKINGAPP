@@ -131,8 +131,14 @@
      <section class="details_main" *ngIf="DetailsMain">
          <div class="card mt-5">
              <div class="card-body mt-3">
-                 <h1 class="fs-4" class="calendar_title">Detalles de esta semana</h1>
+                 <h1 class="fs-4" class="mb-0 calendar_title">Detalles de esta semana</h1>
              </div>
+             <div class="card-body mt-0">
+                <h3 class="fs-4 mb-1 mt-0"><strong>Mi información</strong></h3>
+                <p class="m-0 p-0"><strong>Nombre:</strong>{{alumnoInfo.nombre_completo}}</p>
+                <p class="m-0 p-0"><strong>Objetivo individual:</strong>{{alumnoInfo.objetivo}}</p>
+                <p class="m-0 p-0"><strong>Fecha de ingreso:</strong>{{alumnoInfo.fecha_ingreso}}</p>
+            </div>
              <div class="texts">
                  <p class="mb-1"></p>
                  <p class="mb-4"><em>Espero estes muy bien {{ alumnoInfo.nombre_completo }}!<br> El objetivo de esta semana es:<br> {{entrenamientoInfo.objetivo_semana}}</em></p>

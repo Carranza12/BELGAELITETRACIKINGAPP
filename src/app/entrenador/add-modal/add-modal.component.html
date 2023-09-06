@@ -46,7 +46,7 @@
           <li (click)="addPara(alumno)" class="list-group-item" aria-current="true"
           [ngClass]="{'active': isAlumnoInParaList(alumno)}"
           *ngFor="let alumno of alumnos" >
-            {{alumno.nombre_completo}}
+            {{alumno.nombre_completo}} | <strong>Objetivo:</strong> {{ alumno.objetivo}}
           </li>
         
         </ul>

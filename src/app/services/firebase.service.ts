@@ -9,6 +9,10 @@ export class FirebaseService {
   public entrenamientos = this.initEntrenamientos();
   constructor(public db: AngularFirestore) {}
 
+  getPaginatedEntrenamientos(numberOfPage:number, itemsPerPage:number) {
+   
+  }
+
   public addDocument(
     collection: string,
     data: any

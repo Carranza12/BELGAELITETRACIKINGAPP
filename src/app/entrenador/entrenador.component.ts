@@ -13,6 +13,9 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class EntrenadorComponent implements OnInit {
   public entrenamientosList: any = [];
+  public itemsPerPage: number = 10;
+  public numberOfPage: number = 1;
+  
   constructor(private renderer: Renderer2, private _dialog: Dialog,private router: Router, private _firebase: FirebaseService, private cdr: ChangeDetectorRef, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {

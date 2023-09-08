@@ -21,6 +21,7 @@ export class AddAlumnoComponent implements OnInit {
     status: new FormControl('', Validators.required),
     objetivo: new FormControl('', Validators.required)
   })
+  console.log("cambio de prueba")
 
 
   constructor(private spinner: NgxSpinnerService,private route: ActivatedRoute, private _firebase: FirebaseService, private _router: Router, private cdr:ChangeDetectorRef) { }

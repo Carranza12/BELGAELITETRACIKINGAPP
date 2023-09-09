@@ -12,6 +12,7 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 })
 export class AlumnosComponent implements OnInit {
   public alumnosList: any = [];
+  public alumnosTotales: any = []
   public AlumnosPaginated!:any;
   public alumnosListFiltered: any = [];
   public buscadorControl: FormControl = new FormControl('');
@@ -19,7 +20,8 @@ export class AlumnosComponent implements OnInit {
   public numberOfPage : number = 1;
   constructor(private router: Router, private _firebase: FirebaseService, private spinner: NgxSpinnerService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    this.alumnosTotales = await this._firebase.alumnos;
     this.getData();
     this.buscadorControl.valueChanges
       .pipe(
@@ -55,7 +57,7 @@ export class AlumnosComponent implements OnInit {
   }
 
   public buscarAlumno(terminoBusqueda: string) {
-    const resultados = this.alumnosList.filter((alumno: any) =>
+    const resultados = this.alumnosTotales.filter((alumno: any) =>
       alumno.nombre_completo.toLowerCase().includes(terminoBusqueda.toLowerCase())
     );
     this.messageWhenArrayEmpty = resultados.length === 0 ? "No se encontraron resultados." : "No tienes alumnos dados de alta, para crear uno, pulsa el boton de 'Nuevo alumno'."

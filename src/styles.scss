@@ -6,6 +6,10 @@
     padding: 0;
     font-family: 'Roboto', sans-serif;
 }
+.active {
+    background-color: #c70039!important;
+    border: #c70039!important;
+  }
 
 .alumno_contenedor_link{
     display: flex;

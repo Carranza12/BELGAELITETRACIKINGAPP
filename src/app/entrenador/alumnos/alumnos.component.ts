@@ -12,10 +12,11 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 })
 export class AlumnosComponent implements OnInit {
   public alumnosList: any = [];
+  public AlumnosPaginated!:any;
   public alumnosListFiltered: any = [];
   public buscadorControl: FormControl = new FormControl('');
   public messageWhenArrayEmpty: string = "No tienes alumnos dados de alta, para crear uno, pulsa el boton de 'Nuevo alumno'."
-
+  public numberOfPage : number = 1;
   constructor(private router: Router, private _firebase: FirebaseService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
@@ -34,6 +35,25 @@ export class AlumnosComponent implements OnInit {
       
   }
 
+  public nextPage(){
+    if(this.numberOfPage < this.AlumnosPaginated.totalPages.length){
+      this.numberOfPage++;
+      this.getData()
+    }
+  }
+
+  public backPage(){
+    if(this.numberOfPage > 0){
+      this.numberOfPage--;
+      this.getData()
+    }
+  }
+
+  public goPage(page:number){
+    this.numberOfPage = page;
+    this.getData()
+  }
+
   public buscarAlumno(terminoBusqueda: string) {
     const resultados = this.alumnosList.filter((alumno: any) =>
       alumno.nombre_completo.toLowerCase().includes(terminoBusqueda.toLowerCase())
@@ -44,11 +64,11 @@ export class AlumnosComponent implements OnInit {
 
   public async getData() {
     this.spinner.show();
-    this.alumnosList = await this._firebase.alumnos;
+    this.AlumnosPaginated = await this._firebase.getPaginatedAlumnos(this.numberOfPage,5)
+    this.alumnosList = this.AlumnosPaginated.data;
     this.alumnosList.sort(this.compararFechasAsc)
     this.alumnosList.reverse();
     this.alumnosListFiltered = this.alumnosList;
-    console.log( this.alumnosListFiltered )
     this.spinner.hide();
   }
 

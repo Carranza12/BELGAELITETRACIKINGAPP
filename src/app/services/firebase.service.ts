@@ -2,36 +2,72 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FirebaseService {
-  public alumnos = this.initAlumnos()
-  public entrenamientos = this.initEntrenamientos();
+  public alumnos: any = this.initAlumnos();
+  public entrenamientos: any = this.initEntrenamientos();
   constructor(public db: AngularFirestore) {}
 
-  getPaginatedEntrenamientos(numberOfPage:number, itemsPerPage:number) {
-   
+  async getPaginatedAlumnos(numberOfPage: number, itemsPerPage: number) {
+    if (numberOfPage <= 0 || itemsPerPage <= 0) {
+      throw new Error(
+        'Número de página y elementos por página deben ser mayores que 0.'
+      );
+    }
+    const alumnosArray = await this.alumnos;
+    const totalPages = Math.ceil(alumnosArray.length / itemsPerPage);
+    if (numberOfPage > totalPages) {
+      numberOfPage = totalPages;
+    }
+    const startIndex = (numberOfPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const paginatedEntrenamientos = alumnosArray.slice(startIndex, endIndex);
+    const availablePages = Array.from({ length: totalPages }, (_, i) => i + 1);
+    return {
+      currentPage: numberOfPage,
+      totalPages: availablePages,
+      data: paginatedEntrenamientos,
+      totals: alumnosArray.length,
+    };
   }
 
-  public addDocument(
-    collection: string,
-    data: any
-  ): Promise<any> {
+  async getPaginatedEntrenamientos(numberOfPage: number, itemsPerPage: number) {
+    if (numberOfPage <= 0 || itemsPerPage <= 0) {
+      throw new Error(
+        'Número de página y elementos por página deben ser mayores que 0.'
+      );
+    }
+    const entrenamientosArray = await this.entrenamientos;
+    const totalPages = Math.ceil(entrenamientosArray.length / itemsPerPage);
+    if (numberOfPage > totalPages) {
+      numberOfPage = totalPages;
+    }
+    const startIndex = (numberOfPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const paginatedEntrenamientos = entrenamientosArray.slice(startIndex, endIndex);
+    const availablePages = Array.from({ length: totalPages }, (_, i) => i + 1);
+    return {
+      currentPage: numberOfPage,
+      totalPages: availablePages,
+      data: paginatedEntrenamientos,
+      totals: entrenamientosArray.length,
+    };
+  }
+
+  public addDocument(collection: string, data: any): Promise<any> {
     return this.db.collection(collection).add(data);
   }
-  
-  public async initAlumnos(){
-    return await this.getDocuments('alumnos',{})
+
+  public async initAlumnos() {
+    return await this.getDocuments('alumnos', {});
   }
 
-  public async initEntrenamientos(){
-    return await this.getDocuments('entrenamientos',{})
+  public async initEntrenamientos() {
+    return await this.getDocuments('entrenamientos', {});
   }
 
-  public removeDocument(
-    collection: string,
-    id: string
-  ): Promise<any> {
+  public removeDocument(collection: string, id: string): Promise<any> {
     return this.db.collection(collection).doc(id).delete();
   }
 
@@ -80,7 +116,7 @@ export class FirebaseService {
   public async getDocuments(collection: string, query: any): Promise<any[]> {
     try {
       const filters = query.filters || [];
-      let ref: any = this.db.collection(collection).ref//.limit(20);
+      let ref: any = this.db.collection(collection).ref; //.limit(20);
       filters.forEach((q: any) => {
         ref = ref.where(q.attr, q.operation, q.value);
       });
@@ -113,4 +149,3 @@ export class FirebaseService {
     return this.db.collection(collection).ref;
   }
 }
-

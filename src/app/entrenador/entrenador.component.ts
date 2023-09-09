@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { FirebaseService } from '../services/firebase.service';
 import Swal from 'sweetalert2';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-entrenador',
@@ -13,10 +14,12 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class EntrenadorComponent implements OnInit {
   public entrenamientosList: any = [];
-  public itemsPerPage: number = 10;
+  public entrenamientosPaginated!:any;
   public numberOfPage: number = 1;
   
-  constructor(private renderer: Renderer2, private _dialog: Dialog,private router: Router, private _firebase: FirebaseService, private cdr: ChangeDetectorRef, private spinner: NgxSpinnerService) { }
+  constructor(
+    private _auth:AuthService,
+    private renderer: Renderer2, private _dialog: Dialog,private router: Router, private _firebase: FirebaseService, private cdr: ChangeDetectorRef, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.getData();
@@ -24,6 +27,30 @@ export class EntrenadorComponent implements OnInit {
 
   public openEdit(item: any) {
     this.router.navigate(['/entrenador/editar', item.id]);
+  }
+  
+  public goPage(page:number){
+    this.numberOfPage = page;
+    this.getData()
+  }
+
+  public cerrarSesion(){
+    this._auth.endSesion()
+    this.router.navigateByUrl("/login")
+  }
+  
+  public nextPage(){
+    if(this.numberOfPage < this.entrenamientosPaginated.totalPages.length){
+      this.numberOfPage++;
+      this.getData()
+    }
+  }
+
+  public backPage(){
+    if(this.numberOfPage > 0){
+      this.numberOfPage--;
+      this.getData()
+    }
   }
 
   public openSendDialog(entrenamiento:any){
@@ -87,7 +114,8 @@ export class EntrenadorComponent implements OnInit {
 
   public async getData() {
     this.spinner.show();
-    this.entrenamientosList = await this._firebase.entrenamientos;
+    this.entrenamientosPaginated = await this._firebase.getPaginatedEntrenamientos(this.numberOfPage,5)
+    this.entrenamientosList = this.entrenamientosPaginated.data;
     this.entrenamientosList.sort(this.compararFechasAsc)
     this.entrenamientosList.reverse();
     this.spinner.hide();

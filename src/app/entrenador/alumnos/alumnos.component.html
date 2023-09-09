@@ -1,36 +1,69 @@
-
 <main>
   <nav class="d-flex align-items-center">
-    <a ><img style="width: 60px;object-fit: cover;" src="../../assets//LOGO BELGA ROJO FONDO TRANSPARENTE.png" alt=""></a>
-    <p class="text-name p-0" style="margin: 0px;margin-left: 10px;margin-top: 20px;">Marcos Sánchez</p>
-</nav>
+    <a
+      ><img
+        style="width: 60px; object-fit: cover"
+        src="../../assets//LOGO BELGA ROJO FONDO TRANSPARENTE.png"
+        alt=""
+    /></a>
+    <p
+      class="text-name p-0"
+      style="margin: 0px; margin-left: 10px; margin-top: 20px"
+    >
+      Marcos Sánchez
+    </p>
+  </nav>
   <section>
     <header class="section_header">
-      <a routerLink="/entrenador" class="btn-add"><img src="../../assets/icons/arrow-left.svg" alt="" /></a>
+      <a routerLink="/entrenador" class="btn-add"
+        ><img src="../../assets/icons/arrow-left.svg" alt=""
+      /></a>
       <h4>Alumnos</h4>
     </header>
     <div class="form_container">
       <form>
-        <div class=" flex-nowrap">
-          <input [formControl]="buscadorControl" type="text" class="form-control" placeholder="Busca a un alumno">
+        <div class="flex-nowrap">
+          <input
+            [formControl]="buscadorControl"
+            type="text"
+            class="form-control"
+            placeholder="Busca a un alumno"
+          />
         </div>
       </form>
 
       <div class="col-6 mt-2">
-        <a routerLink="/entrenador/alumnos/nuevo" type="button" class="btn btn-success">
+        <a
+          routerLink="/entrenador/alumnos/nuevo"
+          type="button"
+          class="btn btn-success"
+        >
           Nuevo alumno
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-add"
-            viewBox="0 0 16 16">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-person-add"
+            viewBox="0 0 16 16"
+          >
             <path
-              d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+              d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+            />
             <path
-              d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z" />
+              d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"
+            />
           </svg>
         </a>
       </div>
       <div class="table-responsive mt-2">
-        <h3 *ngIf="alumnosListFiltered.length === 0">{{messageWhenArrayEmpty}}</h3>
-        <table class="table table-light table-borderless" *ngIf="alumnosListFiltered.length >0">
+        <h3 *ngIf="alumnosListFiltered.length === 0">
+          {{ messageWhenArrayEmpty }}
+        </h3>
+        <table
+          class="table table-light table-borderless"
+          *ngIf="alumnosListFiltered.length > 0"
+        >
           <thead>
             <tr>
               <th scope="col">Nombre</th>
@@ -42,24 +75,60 @@
           </thead>
           <tbody>
             <tr *ngFor="let item of alumnosListFiltered">
-              <th scope="row">{{item.nombre_completo}}</th>
+              <th scope="row">{{ item.nombre_completo }}</th>
               <td>{{ item.edad }} años</td>
               <td>{{ item.fecha_ingreso }}</td>
               <td>{{ item.status }}</td>
               <td>
-                <button (click)="openEdit(item.id)" type="button" class="btn btn-primary">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-pencil-square" viewBox="0 0 16 16">
+                <button
+                  (click)="openEdit(item.id)"
+                  type="button"
+                  class="btn btn-primary"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-pencil-square"
+                    viewBox="0 0 16 16"
+                  >
                     <path
-                      d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                    <path fill-rule="evenodd"
-                      d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                      d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
+                    />
                   </svg>
                 </button>
               </td>
             </tr>
           </tbody>
         </table>
+      </div>
+      <div>
+        <ul class="pagination" *ngIf="AlumnosPaginated">
+          <li class="page-item">
+            <button class="btn page-link" 
+            [disabled]="numberOfPage === 1"
+            (click)="backPage()"
+              >Anterior</button>
+          </li>
+          <li
+            class="page-item"
+            [ngClass]="{'active' : numberOfPage === index + 1}"
+            *ngFor="let item of AlumnosPaginated.totalPages; index as index"
+          >
+            <a class="page-link" (click)="goPage(index+1)">{{ index + 1 }}</a>
+          </li>
+          <li class="page-item">
+            <button class="btn page-link" 
+            [disabled]="numberOfPage >= this.AlumnosPaginated.totalPages.length"
+            (click)="nextPage()"
+              >Siguiente</button>
+          </li>
+        </ul>
       </div>
     </div>
   </section>

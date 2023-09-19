@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SecurityContext } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import * as bootstrap from 'bootstrap';
 import { FirebaseService } from '../services/firebase.service';
@@ -6,6 +6,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { FormControl, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { map } from 'rxjs';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 
 @Component({
@@ -31,8 +32,13 @@ export class EntrenamientoComponent implements OnInit {
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
   }
-  constructor(private route: ActivatedRoute, private _firebase:FirebaseService, private spinner: NgxSpinnerService) {}
+  constructor(private sanitizer: DomSanitizer,private route: ActivatedRoute, private _firebase:FirebaseService, private spinner: NgxSpinnerService) {}
 
+  formatText(text: string):any {
+    const formattedText = text.replace(/;/g, '<br>');
+    return this.sanitizer.sanitize(SecurityContext.HTML, formattedText);
+  }
+  
   async ngOnInit(): Promise<void> {
     this.spinner.show()
     this.paramAlumnoID = this.route.snapshot.paramMap.get('AlumnoID');

@@ -64,8 +64,8 @@
                      <div class="detail_calendar_body">
                          <strong>{{ entrenamientoInfo.titulo_lunes }}</strong>
                          <p> {{entrenamientoInfo.tipo_lugar_lunes }}</p>
-                         <p><strong style="font-size:18px">Indicaciones:</strong> 
-                            {{entrenamientoInfo.indicaciones_lunes }}</p>
+                         <p><strong style="font-size:18px">Indicaciones:<br/></strong> 
+                            <span [innerHTML]="formatText(entrenamientoInfo.indicaciones_lunes)"></span></p>
                      </div>
                  </div>
                  <div class="days_calendar detail_calendar">
@@ -75,8 +75,8 @@
                      <div class="detail_calendar_body">
                          <strong>{{ entrenamientoInfo.titulo_martes }}</strong>
                          <p> {{entrenamientoInfo.tipo_lugar_martes }}</p>
-                         <p><strong style="font-size:18px">Indicaciones:</strong> 
-                            {{entrenamientoInfo.indicaciones_martes }}</p>
+                         <p><strong style="font-size:18px">Indicaciones:<br/></strong> 
+                        <span [innerHTML]="formatText(entrenamientoInfo.indicaciones_martes)"></span></p>
                      </div>
                  </div>
                  <div class="days_calendar detail_calendar">
@@ -86,8 +86,8 @@
                      <div class="detail_calendar_body">
                          <strong>{{ entrenamientoInfo.titulo_miercoles }}</strong>
                          <p>  {{entrenamientoInfo.tipo_lugar_miercoles }}</p>
-                         <p><strong style="font-size:18px">Indicaciones:</strong> 
-                            {{entrenamientoInfo.indicaciones_miercoles }}</p>
+                         <p><strong style="font-size:18px">Indicaciones:<br/></strong> 
+                            <span [innerHTML]="formatText(entrenamientoInfo.indicaciones_miercoles)"></span></p>
                      </div>
                  </div>
                  <div class="days_calendar detail_calendar">
@@ -97,8 +97,8 @@
                      <div class="detail_calendar_body">
                          <strong>{{ entrenamientoInfo.titulo_jueves }}</strong>
                          <p>  {{entrenamientoInfo.tipo_lugar_jueves }}</p>
-                         <p><strong style="font-size:18px">Indicaciones:</strong>
-                            {{entrenamientoInfo.indicaciones_jueves }}</p>
+                         <p><strong style="font-size:18px">Indicaciones:<br/></strong>
+                            <span [innerHTML]="formatText(entrenamientoInfo.indicaciones_jueves)"></span></p>
                      </div>
                  </div>
                  <div class="days_calendar detail_calendar">
@@ -108,8 +108,8 @@
                      <div class="detail_calendar_body">
                          <strong>{{ entrenamientoInfo.titulo_viernes }}</strong>
                          <p>  {{entrenamientoInfo.tipo_lugar_viernes }}</p>
-                         <p><strong style="font-size:18px">Indicaciones:</strong>
-                            {{entrenamientoInfo.indicaciones_viernes }}</p>
+                         <p><strong style="font-size:18px">Indicaciones:<br/></strong>
+                            <span [innerHTML]="formatText(entrenamientoInfo.indicaciones_viernes)"></span></p>
                      </div>
                  </div>
                  <div class="days_calendar detail_calendar">
@@ -119,8 +119,8 @@
                      <div class="detail_calendar_body">
                          <strong>{{ entrenamientoInfo.titulo_domingo }}</strong>
                          <p>  {{entrenamientoInfo.tipo_lugar_domingo }}</p>
-                         <p><strong style="font-size:18px">Indicaciones:</strong> 
-                            {{entrenamientoInfo.indicaciones_domingo }}</p>
+                         <p><strong style="font-size:18px">Indicaciones:<br/></strong> 
+                            <span [innerHTML]="formatText(entrenamientoInfo.indicaciones_domingo)"></span></p>
                      </div>
                  </div>
              </div>
